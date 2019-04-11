@@ -5,7 +5,14 @@ import { Text, View } from 'react-native';
 
 class Test extends Component {
     render() {
-        const { dispatch } = this.props;
+        const { setLoginType, setLoginTypeAsync1, setLoginTypeAsync2, isLogin, isLogout, logout } = this.props;
+        // setLoginType({ isLogin: 'setLoginType' });
+        // console.log(isLogin);
+        // setLoginTypeAsync1();
+        // setLoginTypeAsync2();
+        // console.log(isLogin);
+        logout();
+        // console.log(isLogout);
         return (
             <View>
                 <Text>test Text</Text>
@@ -16,12 +23,17 @@ class Test extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLogin: state.isLogin
+        isLogin: state.login.isLogin,
+        // isLogout: state.logout.isLogout
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    setLoginType: () => dispatch({ type: actionTypes.CHANGE_LOGIN, payload: true })
+    setLoginType: (payload) => dispatch({ type: actionTypes.CHANGE_LOGIN, payload }),
+    logout: (payload) => { dispatch({ type: actionTypes.CHANGE_LOGIN, payload }) },
+    //TODO:tip:这里可以起个名字,方便调用saga
+    setLoginTypeAsync1: (payload) => { dispatch({ type: 'changeLogin_async1', payload }) },
+    setLoginTypeAsync2: (payload) => { dispatch({ type: 'changeLogin_async2', payload }) }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Test)
+export default connect(mapStateToProps, mapDispatchToProps)(Test);
