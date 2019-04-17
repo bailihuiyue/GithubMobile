@@ -1,0 +1,6 @@
+{
+    // 实测也没用,注释也不报错
+    "plugins": [
+      ["import", { "libraryName": "@ant-design/react-native" }] // 与 Web 平台的区别是不需要设置 style
+    ]
+  }
