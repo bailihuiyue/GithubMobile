@@ -27,3 +27,15 @@ react-native-splash-screen的安装一定要严格按照github上的文档安装
 rn的settimeout有bug,在使用chrome remote debugger时,setTimeout的超时时间只能设置为0,否则永远不执行
 
 关于react-navigation-redux-helpers:在使用 React Navigation 的项目中，想要集成 redux 就必须要引入 react-navigation-redux-helpers 这个库。参考网址:http://www.imooc.com/article/283337
+
+
+图标库使用:
+https://blog.csdn.net/j550341130/article/details/81205701
+https://oblador.github.io/react-native-vector-icons/
+
+
+react-navigation实在复杂,无奈换了ant-design-mobile-rn感觉好多了
+
+报错:Redux-DevTools Error: It looks like you are passing several store enhancers to createStore(). This is not supported. Instead, compose them together to a single function
+解决方法:看起来新版本又更新了方法, 以前 createStore 集成 redux-devtool 的时候提供 3 个参数, 现在需要将后面的 middleware 全部包裹起来
+http://szhshp.org/tech/2018/11/15/Itlookslikeyouarepassingseveralstoreenh.html

@@ -1,11 +1,12 @@
 import { createStackNavigator, createSwitchNavigator, createAppContainer } from "react-navigation";
-import WelcomePage from '../pages/WelcomePage';
-import Home from '../pages/HomePage';
+import WelcomePage from '../pages/Welcome';
+import Home from '../pages/Home';
 import { connect } from 'react-redux';
 import { createReactNavigationReduxMiddleware, createReduxContainer } from 'react-navigation-redux-helpers';
 
 export const rootCom = 'Init';//设置根路由
 
+// TODO:两个createStackNavigator的写法不一致
 const InitNavigator = createStackNavigator({
     WelcomePage: {
         screen: WelcomePage,
@@ -17,7 +18,12 @@ const InitNavigator = createStackNavigator({
 
 const MainNavigator = createStackNavigator(
     {
-        Home,
+        Home: {
+            screen: Home,
+            navigationOptions: {
+                header: null,// 可以通过将header设为null 来禁用StackNavigator的Navigation Bar
+            }
+        },
         // Details: DetailsScreen
     },
     {
@@ -31,14 +37,15 @@ export const RootNavigator = createAppContainer(createSwitchNavigator({
         navigationOptions: {
             header: null
         }
-    }));
+    })
+);
 
 /**
  * 1.初始化react-navigation与redux的中间件，
  * 该方法的一个很大的作用就是为createAppContainer的key设置actionSubscribers(行为订阅者)
  * @type {Middleware}
  */
-export const navigatorMiddleware = createReactNavigationReduxMiddleware(  
+export const navigatorMiddleware = createReactNavigationReduxMiddleware(
     state => state.nav,
     'root'
 );

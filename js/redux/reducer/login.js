@@ -5,7 +5,6 @@ const defaultState = {
 }
 
 export default (state = defaultState, action) => {
-    debugger
     switch (action.type) {
         case actionTypes.CHANGE_LOGIN:
             return {

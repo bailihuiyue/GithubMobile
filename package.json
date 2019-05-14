@@ -8,11 +8,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@ant-design/react-native": "^3.1.6",
     "babel-plugin-import": "^1.11.0",
     "react": "16.8.3",
     "react-native": "0.59.2",
     "react-native-gesture-handler": "^1.1.0",
     "react-native-splash-screen": "^3.2.0",
+    "react-native-vector-icons": "^6.4.2",
     "react-navigation": "^3.8.1",
     "react-navigation-redux-helpers": "^3.0.2",
     "react-redux": "^7.0.1",
