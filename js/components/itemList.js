@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, FlatList, TouchableOpacity, StyleSheet, RefreshControl, Image } from 'react-native'
-import { FavIcon } from './favIcon';
+import FavIcon from './favIcon';
 import { loadItemList } from '../service/api';
 
 export default class ItemList extends Component {
@@ -8,7 +8,8 @@ export default class ItemList extends Component {
         super(props);
         this.state = {
             data: [],
-            isLoading: false
+            isLoading: false,
+            pageNo: 1
         };
     }
 
@@ -24,16 +25,16 @@ export default class ItemList extends Component {
                     </Text>
                     <View style={styles.row}>
                         <View style={styles.row}>
-                            <Text>Author:</Text>
+                            <Text>Author: </Text>
                             <Image style={{ height: 22, width: 22 }}
                                 source={{ uri: item.owner.avatar_url }}
                             />
                         </View>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <Text>Start:</Text>
+                            <Text>Start: </Text>
                             <Text>{item.stargazers_count}</Text>
                         </View>
-                        {/* <FavIcon theme="" /> */}
+                        <FavIcon theme="" />
                     </View>
                 </View>
             </TouchableOpacity>
@@ -41,21 +42,30 @@ export default class ItemList extends Component {
     }
 
     handleLoadData = () => {
+        const { tabName } = this.props;
         this.setState({ isLoading: true });
-        console.log("loadData", info);
+        const query = `q=${tabName}&sort=stars&page=1&per_page=20`;
+        loadItemList(query, "loadItemList").then(res => {
+            this.setState({ data: res.items, isLoading: false });
+        });
     }
 
     handleLoadMore = (info) => {
-        console.log("loadMore", info);
+        const { tabName } = this.props;
+        let { pageNo, data } = this.state;
+        this.setState({ isLoading: true });
+        const query = `q=${tabName}&sort=stars&page=${pageNo++}&per_page=20`;
+        loadItemList(query, "loadItemList").then(res => {
+            this.setState({ data: [...data, ...res.items], isLoading: false, pageNo: pageNo++ });
+        });
     }
 
     componentWillMount() {
-        const { tabName, pageNo } = this.props;
-        const query = `q=${tabName}&sort=stars&page=${pageNo}&per_page=20`;
-        const data = loadItemList(query, "loadItemList").then(res => {
+        const { tabName } = this.props;
+        const query = `q=${tabName}&sort=stars&page=1&per_page=20`;
+        loadItemList(query, "loadItemList").then(res => {
             this.setState({ data: res.items });
         });
-
     }
 
     render() {
@@ -63,22 +73,20 @@ export default class ItemList extends Component {
         const { data, isLoading } = this.state;
         // const { theme } = this.props;
         // const theme = "";
-        console.log(data)
         return (
             <View>
                 <FlatList
                     data={data}
                     renderItem={({ item }) => this.Item(item)}
                     keyExtractor={item => "" + (item.id || item.fullName)}
+                    onEndReached={this.handleLoadMore}
                     refreshControl={
                         <RefreshControl
                             title={'Loading'}
                             // titleColor={theme.themeColor}
                             // colors={[theme.themeColor]}
                             refreshing={isLoading}
-                            onRefresh={() => this.handleLoadData}
-                            onEndReached={this.handleLoadMore}
-                            onEndReachedThreshold={0}
+                            onRefresh={this.handleLoadData}
                         // tintColor={theme.themeColor}
                         />
                     }
@@ -111,7 +119,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 16,
-        marginBottom: 2,
+        marginBottom: 4,
         color: '#212121',
     },
     description: {
