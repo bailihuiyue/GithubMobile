@@ -13,7 +13,7 @@ const tabs = {//在这里配置页面的路由
     PopularPage: {
         screen: Popular,
         navigationOptions: {
-            tabBarLabel: "Popular",
+            tabBarLabel: "热门",
             tabBarIcon: ({ tintColor, focused }) => (
                 <MaterialIcons
                     name={'whatshot'}
@@ -26,7 +26,7 @@ const tabs = {//在这里配置页面的路由
     TrendingPage: {
         screen: Trending,
         navigationOptions: {
-            tabBarLabel: "Trending",
+            tabBarLabel: "趋势",
             tabBarIcon: ({ tintColor, focused }) => (
                 <MaterialIcons
                     name={'trending-up'}
@@ -39,7 +39,7 @@ const tabs = {//在这里配置页面的路由
     FavoritePage: {
         screen: Favorite,
         navigationOptions: {
-            tabBarLabel: "Favorite",
+            tabBarLabel: "收藏",
             tabBarIcon: ({ tintColor, focused }) => (
                 <MaterialIcons
                     name={'favorite'}
@@ -52,7 +52,7 @@ const tabs = {//在这里配置页面的路由
     MyPage: {
         screen: My,
         navigationOptions: {
-            tabBarLabel: "My",
+            tabBarLabel: "我的",
             tabBarIcon: ({ tintColor, focused }) => (
                 <MaterialIcons
                     name={'people'}
