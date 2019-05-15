@@ -70,7 +70,7 @@ const TabBarComponent = (props) => (<BottomTabBar {...props} />);
 const Tab = createAppContainer(createBottomTabNavigator(
     tabs,
     {
-        initialRouteName: "PopularPage",
+        initialRouteName: "MyPage",
         tabBarComponent: props =>
             <TabBarComponent
                 {...props}
@@ -81,7 +81,7 @@ const Tab = createAppContainer(createBottomTabNavigator(
 
 class BottomNavigator extends Component {
     handleChange = (prevState, newState, action) => {
-        debugger
+        // debugger
     }
     render() {
         return <Tab

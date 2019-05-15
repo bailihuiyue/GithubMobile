@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import GlobalStyles from "../common/style/GlobalStyles";
-import MyPageTxt from "../utils/MyPageTxt";
+import { MyPageTxt } from "../utils/MyPageTxt";
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { MenuItem } from '../utils/MenuItem'
 
@@ -27,10 +27,10 @@ export default class My extends Component {
                   //TODO: color: theme.themeColor,
                 }}
               />
-              <Text>GitHub Popular</Text>
+              <Text>{MyPageTxt.About.name}</Text>
             </View>
             <Ionicons
-              name={'ios-arrow-forward'}
+              name='ios-arrow-forward'
               size={16}
               style={{
                 marginRight: 10,
@@ -38,9 +38,22 @@ export default class My extends Component {
                 // color: theme.themeColor,
               }} />
           </TouchableOpacity>
-          <Text style={styles.groupTitle}>热门管理</Text>
-          <MenuItem menu={MyPageTxt.Custom_Key} onClick={this.handleClickMenu} />
+          <Text style={styles.groupTitle}>自定义热门语言</Text>
+          <MenuItem menu={MyPageTxt.Custom_Key} onClick={this.handleClickMenu} color="" />
           <View style={GlobalStyles.line} />
+          <MenuItem menu={MyPageTxt.Sort_Key} onClick={this.handleClickMenu} color="" />
+          <View style={GlobalStyles.line} />
+          <MenuItem menu={MyPageTxt.Remove_Key} onClick={this.handleClickMenu} color="" />
+          <Text style={styles.groupTitle}>自定义趋势语言</Text>
+          <MenuItem menu={MyPageTxt.Custom_Language} onClick={this.handleClickMenu} color="" />
+          <View style={GlobalStyles.line} />
+          <MenuItem menu={MyPageTxt.Sort_Language} onClick={this.handleClickMenu} color="" />
+          <Text style={styles.groupTitle}>设置</Text>
+          <MenuItem menu={MyPageTxt.Custom_Theme} onClick={this.handleClickMenu} color="" />
+          <View style={GlobalStyles.line} />
+          <MenuItem menu={MyPageTxt.Night_Mode} onClick={this.handleClickMenu} color="" />
+          <View style={GlobalStyles.line} />
+          <MenuItem menu={MyPageTxt.About_Author} onClick={this.handleClickMenu} color="" />
         </ScrollView>
       </View>
     )

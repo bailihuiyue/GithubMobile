@@ -3,7 +3,7 @@ import { TouchableOpacity, StyleSheet, View, Text } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
-export const MenuItem = (onClick, customIco, menu) => {
+export const MenuItem = ({ onClick, customIco, menu, color }) => {
     const { name, IconGroup, icon } = menu;
     return (
         <TouchableOpacity
