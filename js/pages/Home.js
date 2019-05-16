@@ -1,17 +1,42 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, View } from 'react-native';
+import { NavigationActions } from "react-navigation";
+import { BackHandler } from 'react-native';
 import BottomNavigator from "../navigator/BottomNaviagtors";
 
-export default class Home extends Component {
+class Home extends Component {
+    handleBackPress = () => {
+        const { dispatch, nav } = this.props;
+        if (nav.routes[1].index === 0) {
+            //TODO:return false不管用
+            return false;
+        }
+        dispatch(NavigationActions.back());
+        return true;
+    }
 
     render() {
-        return <BottomNavigator/>
+        return <BottomNavigator />
+    }
+
+    componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    }
+
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
     }
 }
 
+//TODO:修改或删除
 const mapStateToProps = state => ({
+    nav: state.nav,
+    // customThemeViewVisible: state.theme.customThemeViewVisible,
     // theme: state.theme.theme,
 });
 
-// export default connect(mapStateToProps)(BottomNavigator);
+const mapDispatchToProps = dispatch => ({
+    // onShowCustomThemeView: (show) => dispatch(actions.onShowCustomThemeView(show)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
