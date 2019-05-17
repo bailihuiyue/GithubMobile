@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBottomTabNavigator, createAppContainer } from "react-navigation";
+import { createBottomTabNavigator } from "react-navigation";
 import { BottomTabBar } from 'react-navigation-tabs';
 import Popular from '../pages/Popular';
 import Trending from '../pages/Trending';

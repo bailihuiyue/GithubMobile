@@ -1,4 +1,4 @@
-import { createStackNavigator, createSwitchNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
+import { createStackNavigator, createSwitchNavigator, createAppContainer } from "react-navigation";
 import Home from '../pages/Home';
 import { connect } from 'react-redux';
 import { createReactNavigationReduxMiddleware, createReduxContainer } from 'react-navigation-redux-helpers';
@@ -22,14 +22,8 @@ const InitNavigator = createStackNavigator({
     }
 });
 
-const MainNavigator = createStackNavigator(
+const Pages = createStackNavigator(
     {
-        Home: {
-            screen: Home,
-            navigationOptions: {
-                header: null,// 可以通过将header设为null 来禁用StackNavigator的Navigation Bar
-            }
-        },
         AboutMe: {
             screen: AboutMe,
             navigationOptions: {
@@ -41,88 +35,14 @@ const MainNavigator = createStackNavigator(
             navigationOptions: {
                 header: null
             }
-        },
-        // Details: DetailsScreen
-    },
-    {
-        initialRouteName: "Home"
+        }
     }
 );
-
-// const tabs = {//在这里配置页面的路由
-//     PopularPage: {
-//         screen: Popular,
-//         navigationOptions: {
-//             tabBarLabel: "热门",
-//             tabBarIcon: ({ tintColor, focused }) => (
-//                 <MaterialIcons
-//                     name={'whatshot'}
-//                     size={26}
-//                     style={{ color: tintColor }}
-//                 />
-//             )
-//         }
-//     },
-//     TrendingPage: {
-//         screen: Trending,
-//         navigationOptions: {
-//             tabBarLabel: "趋势",
-//             tabBarIcon: ({ tintColor, focused }) => (
-//                 <MaterialIcons
-//                     name={'trending-up'}
-//                     size={26}
-//                     style={{ color: tintColor }}
-//                 />
-//             )
-//         }
-//     },
-//     FavoritePage: {
-//         screen: Favorite,
-//         navigationOptions: {
-//             tabBarLabel: "收藏",
-//             tabBarIcon: ({ tintColor, focused }) => (
-//                 <MaterialIcons
-//                     name={'favorite'}
-//                     size={26}
-//                     style={{ color: tintColor }}
-//                 />
-//             )
-//         }
-//     },
-//     MyPage: {
-//         screen: My,
-//         navigationOptions: {
-//             tabBarLabel: "我的",
-//             tabBarIcon: ({ tintColor, focused }) => (
-//                 <MaterialIcons
-//                     name={'people'}
-//                     size={26}
-//                     style={{ color: tintColor }}
-//                 />
-//             )
-//         }
-//     }
-// };
-
-// const TabBarComponent = (props) => (<BottomTabBar {...props} />);
-
-// const BottomTab = createBottomTabNavigator(
-//     tabs,
-//     {
-//         initialRouteName: "MyPage",
-//         tabBarComponent: props =>
-//             <TabBarComponent
-//                 {...props}
-//                 style={{ borderTopColor: '#605F60' }}
-//             />,
-//     },
-// )
 
 export const RootNavigator = createAppContainer(createSwitchNavigator({
     Init: InitNavigator,
     Main: BottomTab,
-    // Main:MainNavigator,
-    // Bottom: bottomTab
+    Pages
 }, {
         initialRouteName: "Init",
         navigationOptions: {

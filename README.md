@@ -39,3 +39,7 @@ react-navigation实在复杂,无奈换了ant-design-mobile-rn感觉好多了
 报错:Redux-DevTools Error: It looks like you are passing several store enhancers to createStore(). This is not supported. Instead, compose them together to a single function
 解决方法:看起来新版本又更新了方法, 以前 createStore 集成 redux-devtool 的时候提供 3 个参数, 现在需要将后面的 middleware 全部包裹起来
 http://szhshp.org/tech/2018/11/15/Itlookslikeyouarepassingseveralstoreenh.html
+
+
+问题:react-navigation中navigation.navigate();无法跳转
+经过大佬解答,一个app一般只有一个路由入口即一个createAppContainer,改后正常
