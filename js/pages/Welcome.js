@@ -9,13 +9,10 @@ type Props = {};
 
 export default class WelcomePage extends Component<Props> {
     componentDidMount() {
-        console.log('componentDidMount', this.props);
         // this.props.onThemeInit();
         this.timer = setTimeout(() => {
             SplashScreen.hide();
-            NavigationUtil.resetToHomPage({
-                navigation: this.props.navigation
-            })
+            NavigationUtil.resetToHomPage(this.props.navigation)
         }, 200);
 
         // this.props.navigation.navigate('Home')

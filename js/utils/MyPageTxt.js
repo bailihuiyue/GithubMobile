@@ -12,5 +12,6 @@ export const MyPageTxt = {
     Remove_Key: {name: '标签移除', IconGroup: Ionicons, icon: 'md-remove'},
     About_Author: {name: '关于作者', IconGroup: Octicons, icon: 'smiley'},
     About: {name: 'GitHub Popular', IconGroup: Ionicons, icon: 'logo-github'},
-    Night_Mode: {name: '夜间模式', IconGroup: Ionicons, icon: 'md-moon'}
+    Night_Mode: {name: '夜间模式', IconGroup: Ionicons, icon: 'md-moon'},
+    Feedback: {name: '反馈', IconGroup: MaterialIcons, icon: 'feedback'},
 };

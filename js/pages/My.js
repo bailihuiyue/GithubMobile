@@ -5,14 +5,18 @@ import { MyPageTxt } from "../utils/MyPageTxt";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { MenuItem } from '../components/MenuItem';
 import Header from '../components/Header';
+import NavigationUtil from "../navigator/NavigationUtil";
+import { withNavigation } from 'react-navigation';
 
 //TODO:删掉
 console.disableYellowBox = true;
 
-export default class My extends Component {
+class My extends Component {
   handleClickMenu(type) {
+    let RouteName = "";
     switch (type) {
-      case "About":
+      case "About_Project":
+        RouteName = 'AboutProject';
         break;
       case "Custom_Key":
         break;
@@ -31,6 +35,9 @@ export default class My extends Component {
       case "About_Author":
         break;
     }
+    if (RouteName) {
+      NavigationUtil.goPage(this.props.navigation, RouteName);
+    }
   }
 
   render() {
@@ -40,7 +47,7 @@ export default class My extends Component {
         <ScrollView>
           <TouchableOpacity
             style={styles.item}
-            onPress={() => this.handleClickMenu(MyPageTxt.About)}
+            onPress={this.handleClickMenu.bind(this, "About_Project")}
           >
             <View style={styles.about_left}>
               <Ionicons
@@ -63,26 +70,25 @@ export default class My extends Component {
               }} />
           </TouchableOpacity>
           <Text style={styles.groupTitle}>自定义热门语言</Text>
-          <MenuItem menu={MyPageTxt.Custom_Key} onClick={this.handleClickMenu.bind(this, "Custom_Key")} color="" />
+          <MenuItem menu={MyPageTxt.Custom_Key} onClick={this.handleClickMenu.bind(this, "Custom_Key")}/>
           <View style={GlobalStyles.line} />
-          <MenuItem menu={MyPageTxt.Sort_Key} onClick={this.handleClickMenu.bind(this, "Sort_Key")} color="" />
+          <MenuItem menu={MyPageTxt.Sort_Key} onClick={this.handleClickMenu.bind(this, "Sort_Key")}/>
           <View style={GlobalStyles.line} />
-          <MenuItem menu={MyPageTxt.Remove_Key} onClick={this.handleClickMenu.bind(this, "Remove_Key")} color="" />
+          <MenuItem menu={MyPageTxt.Remove_Key} onClick={this.handleClickMenu.bind(this, "Remove_Key")}/>
           <Text style={styles.groupTitle}>自定义趋势语言</Text>
-          <MenuItem menu={MyPageTxt.Custom_Language} onClick={this.handleClickMenu.bind(this, "Custom_Language")} color="" />
+          <MenuItem menu={MyPageTxt.Custom_Language} onClick={this.handleClickMenu.bind(this, "Custom_Language")}/>
           <View style={GlobalStyles.line} />
-          <MenuItem menu={MyPageTxt.Sort_Language} onClick={this.handleClickMenu.bind(this, "Sort_Language")} color="" />
+          <MenuItem menu={MyPageTxt.Sort_Language} onClick={this.handleClickMenu.bind(this, "Sort_Language")}/>
           <Text style={styles.groupTitle}>设置</Text>
-          <MenuItem menu={MyPageTxt.Custom_Theme} onClick={this.handleClickMenu.bind(this, "Custom_Theme")} color="" />
+          <MenuItem menu={MyPageTxt.Custom_Theme} onClick={this.handleClickMenu.bind(this, "Custom_Theme")}/>
           <View style={GlobalStyles.line} />
-          <MenuItem menu={MyPageTxt.Night_Mode} onClick={this.handleClickMenu.bind(this, "Night_Mode")} color="" />
-          <View style={GlobalStyles.line} />
-          <MenuItem menu={MyPageTxt.About_Author} onClick={this.handleClickMenu.bind(this, "About_Author")} color="" />
+          <MenuItem menu={MyPageTxt.Night_Mode} onClick={this.handleClickMenu.bind(this, "Night_Mode")}/>
         </ScrollView>
       </View>
     )
   }
 }
+export default withNavigation(My);
 
 const styles = StyleSheet.create({
   container: {
