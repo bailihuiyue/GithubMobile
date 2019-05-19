@@ -51,14 +51,14 @@ class My extends Component {
           >
             <View style={styles.about_left}>
               <Ionicons
-                name={MyPageTxt.About.icon}
+                name={MyPageTxt.About_Project.icon}
                 size={40}
                 style={{
                   marginRight: 10,
                   //TODO: color: theme.themeColor,
                 }}
               />
-              <Text>{MyPageTxt.About.name}</Text>
+              <Text>{MyPageTxt.About_Project.name}</Text>
             </View>
             <Ionicons
               name='ios-arrow-forward'

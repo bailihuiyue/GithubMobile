@@ -1,20 +1,32 @@
 import React, { Component } from 'react'
-import { Text, View, Dimensions, StyleSheet, Platform } from 'react-native'
+import { Text, View, Dimensions, StyleSheet, Platform, Image } from 'react-native'
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import GlobalStyles from "../../common/style/GlobalStyles";
+import { LeftBackButton, RightButton, ShareButton } from '../../components/Buttons';
+import NavigationUtil from "../../navigator/NavigationUtil";
 
 export default class AboutIndex extends Component {
 
   setParallaxProps(params) {
     let config = {};
-    let avatar = typeof (params.avatar) === 'string' ? { uri: params.avatar } : params.avatar;
+    const { type, name, description } = params;
+    //TODO:tips:require地址不能拼不能接变量
+    const imagePath = {
+      project: {
+        avatar: require("../../common/image/GtiHub.png"),
+        bg: require("../../common/image/GtiHub_background.jpg")
+      },
+      author: {
+        avatar: require("../../common/image/me.jpg"),
+        bg: require("../../common/image/me_background.jpg")
+      },
+    }
     config.renderBackground = () => (
       <View key="background">
-        <Image source={{
-          uri: params.backgroundImg,
-          width: window.width,
-          height: PARALLAX_HEADER_HEIGHT
-        }} />
+        <Image
+          style={{ width: window.width, height: PARALLAX_HEADER_HEIGHT }}
+          source={imagePath[type].bg}
+        />
         <View style={{
           position: 'absolute',
           top: 0,
@@ -26,23 +38,26 @@ export default class AboutIndex extends Component {
     );
     config.renderForeground = () => (
       <View key="parallax-header" style={styles.parallaxHeader}>
-        <Image style={styles.avatar}
-          source={avatar} />
+        <Image
+          style={styles.avatar}
+          source={imagePath[type].avatar}
+        />
         <Text style={styles.sectionSpeakerText}>
-          {params.name}
+          {name}
         </Text>
         <Text style={styles.sectionTitleText}>
-          {params.description}
+          {description}
         </Text>
       </View>
     );
     config.renderStickyHeader = () => (
       <View key="sticky-header" style={styles.stickySection}>
-        <Text style={styles.stickySectionText}>{params.name}</Text>
+        <Text style={styles.stickySectionText}>{name}</Text>
       </View>
     );
     config.renderFixedHeader = () => (
       <View key="fixed-header" style={styles.fixedSection}>
+        <LeftBackButton onClick={this.handleClick.bind(this)} />
         {/* {ViewUtil.getLeftBackButton(() => NavigationUtil.goBack(this.props.navigation))}
         {ViewUtil.getShareButton(() => this.onShare())} */}
       </View>
@@ -51,10 +66,16 @@ export default class AboutIndex extends Component {
 
   }
 
+  handleClick() {
+    const { navigation } = this.props;
+    NavigationUtil.goBack(navigation)
+  }
+
+
   render() {
     // TODO
     const { theme, children, params } = this.props;
-    const renderConfig = this.getParallaxRenderConfig(params);
+    const renderConfig = this.setParallaxProps(params);
     return (
       <ParallaxScrollView
         backgroundColor={theme && theme.themeColor}
@@ -62,6 +83,7 @@ export default class AboutIndex extends Component {
         parallaxHeaderHeight={PARALLAX_HEADER_HEIGHT}
         stickyHeaderHeight={STICKY_HEADER_HEIGHT}
         backgroundScrollSpeed={10}
+        {...renderConfig}
       >
         {children}
       </ParallaxScrollView>
@@ -71,7 +93,7 @@ export default class AboutIndex extends Component {
 
 const window = Dimensions.get('window');
 const AVATAR_SIZE = 90;
-const PARALLAX_HEADER_HEIGHT = 270;
+const PARALLAX_HEADER_HEIGHT = 350;
 const TOP = (Platform.OS === 'ios') ? 20 + (DeviceInfo.isIPhoneX_deprecated ? 24 : 0) : 0;
 const STICKY_HEADER_HEIGHT = (Platform.OS === 'ios') ? GlobalStyles.nav_bar_height_ios + TOP : GlobalStyles.nav_bar_height_android;
 
@@ -117,7 +139,9 @@ const styles = StyleSheet.create({
   },
   avatar: {
     marginBottom: 10,
-    borderRadius: AVATAR_SIZE / 2
+    borderRadius: AVATAR_SIZE / 2,
+    width: 80,
+    height: 80
   },
   sectionSpeakerText: {
     color: 'white',
