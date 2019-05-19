@@ -16,6 +16,7 @@ const Pages = createStackNavigator(
                 header: null,// 可以通过将header设为null 来禁用StackNavigator的Navigation Bar
             }
         },
+        //TODO:tip:看来createStackNavigator中还可以包含createBottomTabNavigator
         Main: BottomTab,
         AboutAuthor: {
             screen: AboutAuthor,

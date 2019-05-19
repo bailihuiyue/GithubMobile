@@ -43,3 +43,16 @@ http://szhshp.org/tech/2018/11/15/Itlookslikeyouarepassingseveralstoreenh.html
 
 问题:react-navigation中navigation.navigate();无法跳转
 经过大佬解答,一个app一般只有一个路由入口即一个createAppContainer,改后正常
+
+页面路由结构
+<Root/>包含所有(<AppNavigators/>)
+Welcome
+Main
+    Popular
+    Trending
+    Favorite
+    My
+        about
+            AboutAuthor
+            AboutProject
+        CustomTheme

@@ -7,11 +7,17 @@ import { MenuItem } from '../components/MenuItem';
 import Header from '../components/Header';
 import NavigationUtil from "../navigator/NavigationUtil";
 import { withNavigation } from 'react-navigation';
-
 //TODO:删掉
 console.disableYellowBox = true;
 
 class My extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showTheme: false
+    };
+  }
+
   handleClickMenu(type) {
     let RouteName = "";
     switch (type) {
@@ -29,6 +35,7 @@ class My extends Component {
       case "Sort_Language":
         break;
       case "Custom_Theme":
+        this.setState({ showTheme: true });
         break;
       case "Night_Mode":
         break;
@@ -40,7 +47,12 @@ class My extends Component {
     }
   }
 
+  onCloseTheme() {
+    this.setState({ showTheme: false })
+  }
+
   render() {
+    const { showTheme } = this.state;
     return (
       <View style={GlobalStyles.root_container}>
         <Header title="我的" />
@@ -70,20 +82,28 @@ class My extends Component {
               }} />
           </TouchableOpacity>
           <Text style={styles.groupTitle}>自定义热门语言</Text>
-          <MenuItem menu={MyPageTxt.Custom_Key} onClick={this.handleClickMenu.bind(this, "Custom_Key")}/>
+          <MenuItem menu={MyPageTxt.Custom_Key} onClick={this.handleClickMenu.bind(this, "Custom_Key")} />
           <View style={GlobalStyles.line} />
-          <MenuItem menu={MyPageTxt.Sort_Key} onClick={this.handleClickMenu.bind(this, "Sort_Key")}/>
+          <MenuItem menu={MyPageTxt.Sort_Key} onClick={this.handleClickMenu.bind(this, "Sort_Key")} />
           <View style={GlobalStyles.line} />
-          <MenuItem menu={MyPageTxt.Remove_Key} onClick={this.handleClickMenu.bind(this, "Remove_Key")}/>
+          <MenuItem menu={MyPageTxt.Remove_Key} onClick={this.handleClickMenu.bind(this, "Remove_Key")} />
           <Text style={styles.groupTitle}>自定义趋势语言</Text>
-          <MenuItem menu={MyPageTxt.Custom_Language} onClick={this.handleClickMenu.bind(this, "Custom_Language")}/>
+          <MenuItem menu={MyPageTxt.Custom_Language} onClick={this.handleClickMenu.bind(this, "Custom_Language")} />
           <View style={GlobalStyles.line} />
-          <MenuItem menu={MyPageTxt.Sort_Language} onClick={this.handleClickMenu.bind(this, "Sort_Language")}/>
+          <MenuItem menu={MyPageTxt.Sort_Language} onClick={this.handleClickMenu.bind(this, "Sort_Language")} />
           <Text style={styles.groupTitle}>设置</Text>
-          <MenuItem menu={MyPageTxt.Custom_Theme} onClick={this.handleClickMenu.bind(this, "Custom_Theme")}/>
+          <MenuItem menu={MyPageTxt.Custom_Theme} onClick={this.handleClickMenu.bind(this, "Custom_Theme")} />
           <View style={GlobalStyles.line} />
-          <MenuItem menu={MyPageTxt.Night_Mode} onClick={this.handleClickMenu.bind(this, "Night_Mode")}/>
+          <MenuItem menu={MyPageTxt.Night_Mode} onClick={this.handleClickMenu.bind(this, "Night_Mode")} />
         </ScrollView>
+        {/* 颜色选择器 */}
+        {
+          showTheme ?
+            <View style={styles.themeModal}>
+              <Text>123</Text>
+            </View> :
+            null
+        }
       </View>
     )
   }
@@ -113,5 +133,16 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     fontSize: 12,
     color: 'gray'
+  },
+  themeModal: {
+    position: "absolute",
+    top: 50,
+    bottom: 50,
+    left: 30,
+    right: 30,
+    backgroundColor: "#fff"
+  },
+  colorBtn: {
+    width: "33.3%"
   }
 });
