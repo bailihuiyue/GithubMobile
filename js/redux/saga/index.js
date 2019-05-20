@@ -1,16 +1,20 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
+import { AsyncStorage } from 'react-native';
+import actionTypes from '../actionTypes';
 
-function* changeLogin_async1() {
-    // const response = yield call('CHANGE_LOGIN');
-    yield put({ type: 'CHANGE_LOGIN', payload: { isLogin: 'CHANGE_LOGIN_ASYNC1' } });
+//TODO:tip:和调用reducer一样:setLoginTypeAsync1: (payload) => { dispatch({ type: 'changeLogin_async1', payload }) },
+//因此,effects和reducer不能重名
+function* getTheme() {
+    // yield put({ type: actionTypes.SET_THEME, payload: { theme: "" } });
+    yield AsyncStorage.getItem("themeColor", (error, result) => {
+        put({ type: actionTypes.SET_THEME, payload: { theme: result } });
+    })
 }
 
-function* changeLogin_async2() {
-    yield put({ type: 'CHANGE_LOGIN', payload: { isLogin: 'CHANGE_LOGIN_ASYNC2' } });
-}
+// function* changeLogin_async2() {
+//     yield put({ type: 'CHANGE_LOGIN', payload: { isLogin: 'CHANGE_LOGIN_ASYNC2' } });
+// }
 
 export default function* rootSaga() {
-    // TODO:tip:这里可以给saga起名字,方便调用,saga最终调用的是action
-    yield takeEvery("changeLogin_async1", changeLogin_async1);
-    yield takeEvery("changeLogin_async2", changeLogin_async2)
+    yield takeEvery(actionTypes.GET_THEME, getTheme);
 }

@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { withNavigation } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import GlobalStyles from "../common/style/GlobalStyles";
 import { MyPageTxt } from "../utils/MyPageTxt";
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { MenuItem } from '../components/MenuItem';
 import Header from '../components/Header';
 import NavigationUtil from "../navigator/NavigationUtil";
-import { withNavigation } from 'react-navigation';
+import CustomTheme from './CustomTheme';
+
 //TODO:删掉
 console.disableYellowBox = true;
 
-class My extends Component {
+export default class My extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -97,18 +99,11 @@ class My extends Component {
           <MenuItem menu={MyPageTxt.Night_Mode} onClick={this.handleClickMenu.bind(this, "Night_Mode")} />
         </ScrollView>
         {/* 颜色选择器 */}
-        {
-          showTheme ?
-            <View style={styles.themeModal}>
-              <Text>123</Text>
-            </View> :
-            null
-        }
+        <CustomTheme showTheme={showTheme} onClose={this.onCloseTheme.bind(this)} />
       </View>
     )
   }
 }
-export default withNavigation(My);
 
 const styles = StyleSheet.create({
   container: {

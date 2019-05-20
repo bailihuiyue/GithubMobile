@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 import { Tabs } from '@ant-design/react-native';
 import ItemList from '../components/itemList';
-export default class Popular extends Component {
+class Popular extends Component {
 
   constructor(props) {
     super(props);
@@ -10,6 +11,12 @@ export default class Popular extends Component {
 
     };
   }
+
+  componentWillMount() {
+    const { getTheme } = this.props;
+    getTheme();
+  }
+
 
   render() {
     const theme = {
@@ -30,7 +37,23 @@ export default class Popular extends Component {
       </View>
     )
   }
+
+  componentDidMount() {
+    const { navigation, themeColor } = this.props;
+  }
 }
+//TODO:修改或删除
+const mapStateToProps = state => ({
+  themeColor: state.reducers.theme.color
+  // customThemeViewVisible: state.theme.customThemeViewVisible,
+  // theme: state.theme.theme,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getTheme: () => dispatch({ type: actionTypes.GET_THEME })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Popular);
 
 const styles = StyleSheet.create({
   container: {

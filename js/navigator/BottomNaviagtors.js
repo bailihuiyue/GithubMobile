@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from "react-navigation";
-import { BottomTabBar } from 'react-navigation-tabs';
+import TabBarComponent from './TabBarComponent';
 import Popular from '../pages/Popular';
 import Trending from '../pages/Trending';
 import Favorite from '../pages/Favorite';
@@ -61,8 +61,6 @@ const tabs = {//在这里配置页面的路由
         }
     }
 };
-
-const TabBarComponent = (props) => (<BottomTabBar {...props} />);
 
 export default createBottomTabNavigator(
     tabs,

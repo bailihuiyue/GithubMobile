@@ -42,7 +42,7 @@ http://szhshp.org/tech/2018/11/15/Itlookslikeyouarepassingseveralstoreenh.html
 
 
 问题:react-navigation中navigation.navigate();无法跳转
-经过大佬解答,一个app一般只有一个路由入口即一个createAppContainer,改后正常
+解决方法:经过大佬解答,一个app一般只有一个路由入口即一个createAppContainer,改后正常
 
 页面路由结构
 <Root/>包含所有(<AppNavigators/>)
@@ -56,3 +56,7 @@ Main
             AboutAuthor
             AboutProject
         CustomTheme
+
+
+问题:有时候会报一些莫名其妙的错误比如:cannot find module 945,
+解决方法:一般是缓存问题,刷新或者重启项目就能解决
