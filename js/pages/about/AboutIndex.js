@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Text, View, Dimensions, StyleSheet, Platform, Image } from 'react-native'
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import { connect } from 'react-redux';
 import GlobalStyles from "../../common/style/GlobalStyles";
 import { LeftBackButton, RightButton, ShareButton } from '../../components/Buttons';
 import NavigationUtil from "../../navigator/NavigationUtil";
 
-export default class AboutIndex extends Component {
+class AboutIndex extends Component {
 
   setParallaxProps(params) {
     let config = {};
@@ -73,12 +74,11 @@ export default class AboutIndex extends Component {
 
 
   render() {
-    // TODO
-    const { theme, children, params } = this.props;
+    const { themeColor, children, params } = this.props;
     const renderConfig = this.setParallaxProps(params);
     return (
       <ParallaxScrollView
-        backgroundColor={theme && theme.themeColor}
+        backgroundColor={themeColor}
         contentBackgroundColor={GlobalStyles.backgroundColor}
         parallaxHeaderHeight={PARALLAX_HEADER_HEIGHT}
         stickyHeaderHeight={STICKY_HEADER_HEIGHT}
@@ -91,9 +91,15 @@ export default class AboutIndex extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  themeColor: state.reducers.theme.color
+});
+
+export default connect(mapStateToProps)(AboutIndex);
+
 const window = Dimensions.get('window');
 const AVATAR_SIZE = 90;
-const PARALLAX_HEADER_HEIGHT = 350;
+const PARALLAX_HEADER_HEIGHT = 300;
 const TOP = (Platform.OS === 'ios') ? 20 + (DeviceInfo.isIPhoneX_deprecated ? 24 : 0) : 0;
 const STICKY_HEADER_HEIGHT = (Platform.OS === 'ios') ? GlobalStyles.nav_bar_height_ios + TOP : GlobalStyles.nav_bar_height_android;
 

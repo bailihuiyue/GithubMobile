@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import { TouchableOpacity } from 'react-native'
+import React, { Component } from 'react';
+import { TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-export default class FavIcon extends Component {
+class FavIcon extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,7 +16,7 @@ export default class FavIcon extends Component {
     }
 
     render() {
-        const { theme } = this.props;
+        const { themeColor } = this.props;
         const { isFavorite } = this.state;
         return (
             <TouchableOpacity
@@ -25,9 +26,15 @@ export default class FavIcon extends Component {
                 <MaterialIcons
                     name={isFavorite ? 'star' : 'star-border'}
                     size={26}
-                    style={{ color: theme.themeColor }}
+                    style={{ color: themeColor }}
                 />
             </TouchableOpacity>
         )
     }
 }
+const mapStateToProps = state => ({
+    themeColor: state.reducers.theme.color
+});
+
+
+export default connect(mapStateToProps)(FavIcon);

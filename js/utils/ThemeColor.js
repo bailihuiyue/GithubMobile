@@ -1,6 +1,6 @@
 export default themeColor = {
-    Purple: '#9C27B0',
-    Default: '#2196F3',
+    Default: '#742D8C',
+    Blue: '#2196F3',
     Red: '#F44336',
     Pink: '#E91E63',
     DeepPurple: '#673AB7',

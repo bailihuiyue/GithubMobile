@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { withNavigation } from 'react-navigation';
+import { Text, View, Alert, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import GlobalStyles from "../common/style/GlobalStyles";
 import { MyPageTxt } from "../utils/MyPageTxt";
-import { MenuItem } from '../components/MenuItem';
+import MenuItem from '../components/MenuItem';
 import Header from '../components/Header';
 import NavigationUtil from "../navigator/NavigationUtil";
 import CustomTheme from './CustomTheme';
@@ -12,7 +12,7 @@ import CustomTheme from './CustomTheme';
 //TODO:删掉
 console.disableYellowBox = true;
 
-export default class My extends Component {
+class My extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,6 +40,13 @@ export default class My extends Component {
         this.setState({ showTheme: true });
         break;
       case "Night_Mode":
+        Alert.alert(
+          '即将上线',
+          '敬请期待!',
+          [
+            { text: 'OK' },
+          ]
+        )
         break;
       case "About_Author":
         break;
@@ -55,6 +62,7 @@ export default class My extends Component {
 
   render() {
     const { showTheme } = this.state;
+    const { themeColor } = this.props;
     return (
       <View style={GlobalStyles.root_container}>
         <Header title="我的" />
@@ -69,7 +77,7 @@ export default class My extends Component {
                 size={40}
                 style={{
                   marginRight: 10,
-                  //TODO: color: theme.themeColor,
+                  color: themeColor,
                 }}
               />
               <Text>{MyPageTxt.About_Project.name}</Text>
@@ -80,7 +88,7 @@ export default class My extends Component {
               style={{
                 marginRight: 10,
                 alignSelf: 'center',
-                // color: theme.themeColor,
+                color: themeColor,
               }} />
           </TouchableOpacity>
           <Text style={styles.groupTitle}>自定义热门语言</Text>
@@ -104,6 +112,13 @@ export default class My extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  themeColor: state.reducers.theme.color
+});
+
+
+export default connect(mapStateToProps)(My);
 
 const styles = StyleSheet.create({
   container: {

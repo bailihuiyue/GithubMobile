@@ -1,10 +1,11 @@
 import actionTypes from '../actionTypes'
 import { AsyncStorage } from 'react-native';
+import themeColor from '../../utils/ThemeColor';
 
 const defaultState = {
     isLogin: false,
     theme: {
-        color: "#9C27B0"
+        color: themeColor.Default
     }
 }
 

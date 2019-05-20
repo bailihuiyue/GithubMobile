@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import { MenuItem } from '../../components/MenuItem';
+import MenuItem from '../../components/MenuItem';
 import { MyPageTxt } from "../../utils/MyPageTxt";
 import AboutIndex from "./AboutIndex";
 import GlobalStyles from "../../common/style/GlobalStyles";

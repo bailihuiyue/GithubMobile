@@ -1,9 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, View, Text } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import { TouchableOpacity, StyleSheet, View, Text } from 'react-native';
+import { connect } from 'react-redux';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
-export const MenuItem = ({ onClick, customIco, menu, color }) => {
+const MenuItem = ({ onClick, customIco, menu, color, themeColor }) => {
     const { name, IconGroup, icon } = menu;
     return (
         <TouchableOpacity
@@ -14,7 +15,7 @@ export const MenuItem = ({ onClick, customIco, menu, color }) => {
                 <IconGroup
                     name={icon}
                     size={16}
-                    style={{ color: color, marginRight: 10 }}
+                    style={{ color: themeColor, marginRight: 10 }}
                 />
                 <Text>{name}</Text>
             </View>
@@ -24,11 +25,19 @@ export const MenuItem = ({ onClick, customIco, menu, color }) => {
                 style={{
                     marginRight: 10,
                     alignSelf: 'center',
-                    color: color || 'black',
+                    color: themeColor || 'black',
                 }} />
         </TouchableOpacity>
     )
 }
+
+const mapStateToProps = state => ({
+    themeColor: state.reducers.theme.color
+});
+
+
+export default connect(mapStateToProps)(MenuItem);
+
 
 const styles = StyleSheet.create({
     setting_item_container: {

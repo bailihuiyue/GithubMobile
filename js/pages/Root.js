@@ -18,7 +18,7 @@ class Root extends Component {
     }
 
     componentWillMount() {
-        const { navigation, getTheme, theme } = this.props;
+        const { getTheme } = this.props;
         getTheme();
     }
 
@@ -35,16 +35,12 @@ class Root extends Component {
     }
 }
 
-//TODO:修改或删除
 const mapStateToProps = state => ({
     nav: state.nav,
     theme: state.reducers.theme
-    // customThemeViewVisible: state.theme.customThemeViewVisible,
-    // theme: state.theme.theme,
 });
 
 const mapDispatchToProps = dispatch => ({
-    // onShowCustomThemeView: (show) => dispatch(actions.onShowCustomThemeView(show)),
     back: () => dispatch(NavigationActions.back()),
     getTheme: () => dispatch({ type: actionTypes.GET_THEME })
 });
