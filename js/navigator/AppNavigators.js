@@ -7,6 +7,7 @@ import BottomTab from './BottomNaviagtors';
 
 import AboutAuthor from '../pages/about/AboutAuthor';
 import AboutProject from '../pages/about/AboutProject';
+import CustomKey from '../pages/CustomKey';
 
 const Pages = createStackNavigator(
     {
@@ -29,6 +30,12 @@ const Pages = createStackNavigator(
             navigationOptions: {
                 header: null
             }
+        },
+        CustomKey:{
+            screen: CustomKey,
+            navigationOptions: {
+                header: null
+            } 
         }
     },
     {

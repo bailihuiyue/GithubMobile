@@ -12,6 +12,7 @@
     "babel-plugin-import": "^1.11.0",
     "react": "16.8.3",
     "react-native": "0.59.2",
+    "react-native-check-box": "^2.1.7",
     "react-native-gesture-handler": "^1.1.0",
     "react-native-parallax-scroll-view": "^0.21.3",
     "react-native-splash-screen": "^3.2.0",

@@ -55,6 +55,9 @@ Main
         about
             AboutAuthor
             AboutProject
+        SetPopularKey
+        SortPopularKey
+        -------------    
         CustomTheme
 
 

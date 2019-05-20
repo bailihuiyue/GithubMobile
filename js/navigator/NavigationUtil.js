@@ -4,12 +4,12 @@ export default class NavigationUtil {
      * @param params 要传递的参数
      * @param page 要跳转的页面名
      **/
-    static goPage(navigation, page) {
+    static goPage(navigation, page, params) {
         if (!navigation) {
             console.log('navigation can not be null')
             return;
         }
-        navigation.navigate(page);
+        navigation.navigate(page, params);
     }
 
     /**

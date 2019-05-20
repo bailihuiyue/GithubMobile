@@ -22,16 +22,21 @@ class My extends Component {
 
   handleClickMenu(type) {
     let RouteName = "";
+    let params = {};
     switch (type) {
       case "About_Project":
         RouteName = 'AboutProject';
         break;
       case "Custom_Key":
+        RouteName = 'CustomKey';
+        params = {
+          type: "CustomKey"
+        };
         break;
       case "Sort_Key":
         break;
-      case "Remove_Key":
-        break;
+      // case "Remove_Key":
+      //   break;
       case "Custom_Language":
         break;
       case "Sort_Language":
@@ -52,7 +57,7 @@ class My extends Component {
         break;
     }
     if (RouteName) {
-      NavigationUtil.goPage(this.props.navigation, RouteName);
+      NavigationUtil.goPage(this.props.navigation, RouteName, params);
     }
   }
 
@@ -96,7 +101,7 @@ class My extends Component {
           <View style={GlobalStyles.line} />
           <MenuItem menu={MyPageTxt.Sort_Key} onClick={this.handleClickMenu.bind(this, "Sort_Key")} />
           <View style={GlobalStyles.line} />
-          <MenuItem menu={MyPageTxt.Remove_Key} onClick={this.handleClickMenu.bind(this, "Remove_Key")} />
+          {/* <MenuItem menu={MyPageTxt.Remove_Key} onClick={this.handleClickMenu.bind(this, "Remove_Key")} /> */}
           <Text style={styles.groupTitle}>自定义趋势语言</Text>
           <MenuItem menu={MyPageTxt.Custom_Language} onClick={this.handleClickMenu.bind(this, "Custom_Language")} />
           <View style={GlobalStyles.line} />
