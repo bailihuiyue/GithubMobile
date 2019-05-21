@@ -2337,38 +2337,67 @@ const popularLang = [
     {
         "path": "stars:>1",
         "name": "ALL",
-        "short_name": "ALL",
-        "checked": true
+        "short_name": "ALL"
     },
     {
         "path": "iOS",
-        "name": "iOS",
-        "checked": true
+        "name": "iOS"
+    },
+    {
+        "path": "android",
+        "name": "Android"
     },
     {
         "path": "react-native",
-        "name": "React Native",
-        "checked": true
+        "name": "React Native"
     },
     {
         "path": "MySQL",
-        "name": "MySQL",
-        "checked": false
+        "name": "MySQL"
     },
     {
         "path": "AngularJS",
-        "name": "AngularJS",
-        "checked": false
+        "name": "AngularJS"
     },
     {
         "path": "jQuery",
-        "name": "jQuery",
-        "checked": false
+        "name": "jQuery"
     },
     {
         "path": "react",
-        "name": "React",
-        "checked": true
+        "name": "React"
+    },
+    {
+        "path": "react",
+        "name": "React"
+    },
+    {
+        "path": "vue",
+        "name": "Vue"
+    },
+    {
+        "path": "python",
+        "name": "Python"
+    },
+    {
+        "path": "nodejs",
+        "name": "Nodejs"
+    },
+    {
+        "path": "javascript",
+        "name": "Javascript"
+    },
+    {
+        "path": "typescript",
+        "name": "Typescript"
+    },
+    {
+        "path": "java",
+        "name": "Java"
+    },
+    {
+        "path": "express",
+        "name": "Express"
     }
 ]
 export default mock = {

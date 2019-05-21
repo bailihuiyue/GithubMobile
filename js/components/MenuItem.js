@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
-const MenuItem = ({ onClick, customIco, menu, color, themeColor }) => {
+const MenuItem = ({ onClick, customIco, menu, color, themeColor, rightBtn }) => {
     const { name, IconGroup, icon } = menu;
     return (
         <TouchableOpacity
@@ -19,14 +19,19 @@ const MenuItem = ({ onClick, customIco, menu, color, themeColor }) => {
                 />
                 <Text>{name}</Text>
             </View>
-            <Ionicons
-                name={customIco || 'ios-arrow-forward'}
-                size={16}
-                style={{
-                    marginRight: 10,
-                    alignSelf: 'center',
-                    color: themeColor || 'black',
-                }} />
+            {
+                rightBtn ?
+                    rightBtn :
+                    <Ionicons
+                        name={customIco || 'ios-arrow-forward'}
+                        size={16}
+                        style={{
+                            marginRight: 10,
+                            alignSelf: 'center',
+                            color: themeColor || 'black',
+                        }}
+                    />
+            }
         </TouchableOpacity>
     )
 }

@@ -3,4 +3,5 @@ export default actionTypes = {
     CHANGE_LOGIN_ASYNC: 'CHANGE_LOGIN_ASYNC',
     SET_THEME: 'SET_THEME',
     GET_THEME: 'GET_THEME',
+    USE_ONLINE_DATA: 'USE_ONLINE_DATA',
   }

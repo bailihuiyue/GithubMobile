@@ -3,10 +3,10 @@ import { AsyncStorage } from 'react-native';
 import themeColor from '../../utils/ThemeColor';
 
 const defaultState = {
-    isLogin: false,
     theme: {
         color: themeColor.Default
-    }
+    },
+    useOnlineData: true
 }
 
 export default (state = defaultState, { type, payload }) => {
@@ -21,6 +21,11 @@ export default (state = defaultState, { type, payload }) => {
             return {
                 ...state,
                 theme: { color: payload.theme }
+            };
+        case actionTypes.USE_ONLINE_DATA:
+            return {
+                ...state,
+                useOnlineData: payload
             };
         default:
             return state;

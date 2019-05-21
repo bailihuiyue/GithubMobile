@@ -14,4 +14,5 @@ export const MyPageTxt = {
     About_Project: {name: 'GitHub Popular', IconGroup: Ionicons, icon: 'logo-github'},
     Night_Mode: {name: '夜间模式', IconGroup: Ionicons, icon: 'md-moon'},
     Feedback: {name: '反馈', IconGroup: MaterialIcons, icon: 'feedback'},
+    Demo_Mode: {name: '离线模式', IconGroup: MaterialCommunityIcons, icon: 'airplane'},
 };

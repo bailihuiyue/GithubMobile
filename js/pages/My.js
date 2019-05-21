@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Text, View, Alert, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Switch } from '@ant-design/react-native'
 import GlobalStyles from "../common/style/GlobalStyles";
 import { MyPageTxt } from "../utils/MyPageTxt";
 import MenuItem from '../components/MenuItem';
 import Header from '../components/Header';
 import NavigationUtil from "../navigator/NavigationUtil";
 import CustomTheme from './CustomTheme';
+import actionTypes from '../redux/actionTypes';
 
 //TODO:删掉
 console.disableYellowBox = true;
@@ -35,8 +37,8 @@ class My extends Component {
         break;
       case "Sort_Key":
         break;
-      // case "Remove_Key":
-      //   break;
+      case "Demo_Mode":
+        break;
       case "Custom_Language":
         break;
       case "Sort_Language":
@@ -65,9 +67,16 @@ class My extends Component {
     this.setState({ showTheme: false })
   }
 
+  onSwitchChange(value) {
+    const { setDataSource } = this.props;
+    console.log("onSwitchChange", value)
+    setDataSource(!value);
+  }
+
   render() {
     const { showTheme } = this.state;
-    const { themeColor } = this.props;
+    const { themeColor, useOnlineData } = this.props;
+    console.log("render", useOnlineData);
     return (
       <View style={GlobalStyles.root_container}>
         <Header title="我的" />
@@ -110,6 +119,14 @@ class My extends Component {
           <MenuItem menu={MyPageTxt.Custom_Theme} onClick={this.handleClickMenu.bind(this, "Custom_Theme")} />
           <View style={GlobalStyles.line} />
           <MenuItem menu={MyPageTxt.Night_Mode} onClick={this.handleClickMenu.bind(this, "Night_Mode")} />
+          <View style={GlobalStyles.line} />
+          <MenuItem
+            menu={MyPageTxt.Demo_Mode}
+            onClick={this.handleClickMenu.bind(this, "Demo_Mode")}
+            rightBtn={
+              <Switch onChange={this.onSwitchChange.bind(this)} checked={!useOnlineData} />
+            }
+          />
         </ScrollView>
         {/* 颜色选择器 */}
         <CustomTheme showTheme={showTheme} onClose={this.onCloseTheme.bind(this)} />
@@ -119,11 +136,15 @@ class My extends Component {
 }
 
 const mapStateToProps = state => ({
-  themeColor: state.reducers.theme.color
+  themeColor: state.reducers.theme.color,
+  useOnlineData: state.reducers.useOnlineData
 });
 
+const mapDispatchToProps = dispatch => ({
+  setDataSource: (useOnlineData) => dispatch({ type: actionTypes.USE_ONLINE_DATA, payload: useOnlineData })
+});
 
-export default connect(mapStateToProps)(My);
+export default connect(mapStateToProps, mapDispatchToProps)(My);
 
 const styles = StyleSheet.create({
   container: {

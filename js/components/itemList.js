@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Text, View, FlatList, TouchableOpacity, StyleSheet, RefreshControl, Image } from 'react-native'
+import { connect } from 'react-redux';
 import FavIcon from './favIcon';
 import { loadItemList } from '../service/api';
 
-export default class ItemList extends Component {
+class ItemList extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -42,37 +43,47 @@ export default class ItemList extends Component {
     }
 
     handleLoadData = () => {
-        const { tabName } = this.props;
+        const { tabName, useOnlineData } = this.props;
         this.setState({ isLoading: true });
         const query = `q=${tabName}&sort=stars&page=1&per_page=20`;
-        loadItemList(query, "loadItemList").then(res => {
+        loadItemList(query, "loadItemList", useOnlineData).then(res => {
             this.setState({ data: res.items, isLoading: false });
         });
     }
 
     handleLoadMore = (info) => {
-        const { tabName } = this.props;
+        const { tabName, useOnlineData } = this.props;
         let { pageNo, data } = this.state;
         this.setState({ isLoading: true });
         const query = `q=${tabName}&sort=stars&page=${pageNo++}&per_page=20`;
-        loadItemList(query, "loadItemList").then(res => {
+        loadItemList(query, "loadItemList", useOnlineData).then(res => {
             this.setState({ data: [...data, ...res.items], isLoading: false, pageNo: pageNo++ });
         });
     }
 
     componentWillMount() {
-        const { tabName } = this.props;
+        const { tabName, useOnlineData } = this.props;
         const query = `q=${tabName}&sort=stars&page=1&per_page=20`;
-        loadItemList(query, "loadItemList").then(res => {
-            this.setState({ data: res.items });
+        this.setState({ isLoading: true });
+        loadItemList(query, "loadItemList", useOnlineData).then(res => {
+            this.setState({ data: res.items, isLoading: false });
         });
     }
 
+    componentWillReceiveProps(nexProps) {
+        const { tabName, useOnlineData } = nexProps;
+        console.log("componentWillReceiveProps", useOnlineData !== this.props.useOnlineData);
+        if (useOnlineData !== this.props.useOnlineData) {
+            this.setState({ isLoading: true });
+            const query = `q=${tabName}&sort=stars&page=1&per_page=20`;
+            loadItemList(query, "loadItemList", useOnlineData).then(res => {
+                this.setState({ data: res.items, isLoading: false });
+            });
+        }
+    }
+
     render() {
-        // TODO:theme要统一传入
         const { data, isLoading } = this.state;
-        // const { theme } = this.props;
-        // const theme = "";
         return (
             <View>
                 <FlatList
@@ -83,11 +94,8 @@ export default class ItemList extends Component {
                     refreshControl={
                         <RefreshControl
                             title={'Loading'}
-                            // titleColor={theme.themeColor}
-                            // colors={[theme.themeColor]}
                             refreshing={isLoading}
                             onRefresh={this.handleLoadData}
-                        // tintColor={theme.themeColor}
                         />
                     }
                 />
@@ -95,6 +103,12 @@ export default class ItemList extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    useOnlineData: state.reducers.useOnlineData
+});
+
+export default connect(mapStateToProps)(ItemList);
 
 const styles = StyleSheet.create({
     wrap: {
