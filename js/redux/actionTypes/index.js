@@ -4,4 +4,6 @@ export default actionTypes = {
     SET_THEME: 'SET_THEME',
     GET_THEME: 'GET_THEME',
     USE_ONLINE_DATA: 'USE_ONLINE_DATA',
+    SET_CUSTOM_KEY: 'SET_CUSTOM_KEY',
+    GET_CUSTOM_KEYS: 'GET_CUSTOM_KEYS',
   }

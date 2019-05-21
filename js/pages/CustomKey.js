@@ -6,17 +6,36 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import SafeAreaViewPlus from "../utils/SafeAreaViewPlus";
 import Header from '../components/Header';
 import { MyPageTxt } from '../utils/MyPageTxt';
-import { trendingLang, popularLang } from '../service/mock';
+import mock from '../service/mock';
+import actionTypes from '../redux/actionTypes';
+import ArrayUtil from "../utils/ArrayUtil";
+
 class CustomKey extends Component {
-    // title, noTitle, leftButton, rightButton, themeColor
+    constructor(props) {
+        super(props);
+        this.state = {
+            trendingData: [],
+            popularData: []
+        }
+    }
 
     onClick(data, index) {
-        data.checked = !data.checked;
-        ArrayUtil.updateArray(this.changeValues, data);
-        this.state.keys[index] = data;//更新state以便显示选中状态
-        this.setState({
-            keys: this.state.keys
-        })
+        const { navigation, setCustomKey } = this.props;
+        const { keys, trendingData, popularData } = this.state;
+        const type = navigation.state.params.type;
+        let tempArr = [];
+        let tempData = { ...data };
+        tempData.checked = !tempData.checked;
+        if (type === "CustomKey") {
+            tempArr = [...popularData];
+            tempArr[index] = tempData;
+            this.setState({ popularData: tempArr });
+        } else {
+            tempArr = [...trendingData];
+            tempArr[index] = tempData;
+            this.setState({ trendingData: tempArr });
+        }
+        setCustomKey(type, tempArr);
     }
 
     //TODO:代码优化:checkedImage,renderCheckBox,renderView完成checkbox的渲染,可提取到一个组件中
@@ -33,7 +52,7 @@ class CustomKey extends Component {
     renderCheckBox(data, index) {
         return <CheckBox
             style={{ flex: 1, padding: 10 }}
-            onClick={() => this.onClick(data, index)}
+            onClick={this.onClick.bind(this, data, index)}
             isChecked={data.checked}
             leftText={data.name}
             checkedImage={this.checkedImage(true)}
@@ -42,9 +61,12 @@ class CustomKey extends Component {
     }
 
     renderView() {
-        let dataArray = this.state.keys;
+        const { navigation } = this.props;
+        const { trendingData, popularData } = this.state;
+        const type = navigation.state.params.type;
+        const dataArray = type === "CustomKey" ? popularData : trendingData;
         if (!dataArray || dataArray.length === 0) return;
-        let len = dataArray.length;
+        const len = dataArray.length;
         let views = [];
         for (let i = 0, l = len; i < l; i += 2) {
             views.push(
@@ -60,10 +82,17 @@ class CustomKey extends Component {
         return views;
     }
 
+    componentWillMount() {
+        const { trendingData, popularData } = this.props;
+        this.setState({
+            trendingData: trendingData.length > 0 ? trendingData : mock.trendingLang,
+            popularData: popularData.length > 0 ? popularData : mock.popularLang
+        });
+    }
+
     render() {
         const { themeColor, navigation } = this.props;
         const type = navigation.state.params.type;
-        const data = type === "CustomKey" ? popularLang : trendingLang;
         return <SafeAreaViewPlus
             style={styles.container}
             topColor={themeColor}
@@ -74,17 +103,19 @@ class CustomKey extends Component {
                     : MyPageTxt.Custom_Language.name
             } />
             <ScrollView>
-                {/* {this.renderView()} */}
+                {this.renderView()}
             </ScrollView>
         </SafeAreaViewPlus>
     }
 }
 
 const mapStateToProps = state => ({
-    themeColor: state.reducers.theme.color
+    themeColor: state.reducers.theme.color,
+    trendingData: state.reducers.trendingData,
+    popularData: state.reducers.popularData,
 });
 const mapDispatchToProps = dispatch => ({
-    getTheme: () => dispatch({ type: actionTypes.GET_THEME })
+    setCustomKey: (type, arr) => dispatch({ type: actionTypes.SET_CUSTOM_KEY, payload: { type, arr } })
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CustomKey);
 

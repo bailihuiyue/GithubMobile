@@ -12,12 +12,6 @@ class Popular extends Component {
     };
   }
 
-  componentWillMount() {
-    const { getTheme } = this.props;
-    getTheme();
-  }
-
-
   render() {
     const theme = {
       alignItems: 'center',

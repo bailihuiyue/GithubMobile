@@ -40,6 +40,10 @@ class My extends Component {
       case "Demo_Mode":
         break;
       case "Custom_Language":
+        RouteName = 'CustomKey';
+        params = {
+          type: "CustomLanguage"
+        };
         break;
       case "Sort_Language":
         break;
@@ -69,14 +73,12 @@ class My extends Component {
 
   onSwitchChange(value) {
     const { setDataSource } = this.props;
-    console.log("onSwitchChange", value)
     setDataSource(!value);
   }
 
   render() {
     const { showTheme } = this.state;
     const { themeColor, useOnlineData } = this.props;
-    console.log("render", useOnlineData);
     return (
       <View style={GlobalStyles.root_container}>
         <Header title="我的" />

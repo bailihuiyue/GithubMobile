@@ -2023,7 +2023,7 @@ const trendingLang = [
     {
         "path": "unknown",
         "name": "Unknown",
-        "checked": true
+        "checked": false
     },
     {
         "path": "as3",
@@ -2165,13 +2165,13 @@ const trendingLang = [
     {
         "path": "java",
         "name": "Java",
-        "checked": true
+        "checked": false
     },
     {
         "path": "javascript",
         "short_name": "JS",
         "name": "JavaScript",
-        "checked": true
+        "checked": false
     },
     {
         "path": "julia",
@@ -2181,7 +2181,7 @@ const trendingLang = [
     {
         "path": "kotlin",
         "name": "Kotlin",
-        "checked": true
+        "checked": false
     },
     {
         "path": "livescript",
@@ -2234,7 +2234,7 @@ const trendingLang = [
     {
         "path": "php",
         "name": "PHP",
-        "checked": true
+        "checked": false
     },
     {
         "path": "plsql",
@@ -2337,67 +2337,83 @@ const popularLang = [
     {
         "path": "stars:>1",
         "name": "ALL",
-        "short_name": "ALL"
+        "short_name": "ALL",
+        "checked":true
     },
     {
         "path": "iOS",
-        "name": "iOS"
+        "name": "iOS",
+        "checked":false
     },
     {
         "path": "android",
-        "name": "Android"
+        "name": "Android",
+        "checked":false
     },
     {
         "path": "react-native",
-        "name": "React Native"
+        "name": "React Native",
+        "checked":false
     },
     {
         "path": "MySQL",
-        "name": "MySQL"
+        "name": "MySQL",
+        "checked":false
     },
     {
         "path": "AngularJS",
-        "name": "AngularJS"
+        "name": "AngularJS",
+        "checked":false
     },
     {
         "path": "jQuery",
-        "name": "jQuery"
+        "name": "jQuery",
+        "checked":false
     },
     {
         "path": "react",
-        "name": "React"
+        "name": "React",
+        "checked":false
     },
     {
         "path": "react",
-        "name": "React"
+        "name": "React",
+        "checked":false
     },
     {
         "path": "vue",
-        "name": "Vue"
+        "name": "Vue",
+        "checked":false
     },
     {
         "path": "python",
-        "name": "Python"
+        "name": "Python",
+        "checked":false
     },
     {
         "path": "nodejs",
-        "name": "Nodejs"
+        "name": "Nodejs",
+        "checked":false
     },
     {
         "path": "javascript",
-        "name": "Javascript"
+        "name": "Javascript",
+        "checked":false
     },
     {
         "path": "typescript",
-        "name": "Typescript"
+        "name": "Typescript",
+        "checked":false
     },
     {
         "path": "java",
-        "name": "Java"
+        "name": "Java",
+        "checked":false
     },
     {
         "path": "express",
-        "name": "Express"
+        "name": "Express",
+        "checked":false
     }
 ]
 export default mock = {

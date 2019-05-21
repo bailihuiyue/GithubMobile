@@ -72,7 +72,6 @@ class ItemList extends Component {
 
     componentWillReceiveProps(nexProps) {
         const { tabName, useOnlineData } = nexProps;
-        console.log("componentWillReceiveProps", useOnlineData !== this.props.useOnlineData);
         if (useOnlineData !== this.props.useOnlineData) {
             this.setState({ isLoading: true });
             const query = `q=${tabName}&sort=stars&page=1&per_page=20`;
