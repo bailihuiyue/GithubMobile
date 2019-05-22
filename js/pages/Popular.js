@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Tabs } from '@ant-design/react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import ItemList from '../components/ItemList';
 import Header from '../components/Header';
+import NavigationUtil from '../navigator/NavigationUtil';
 class Popular extends Component {
 
   constructor(props) {
@@ -13,8 +15,13 @@ class Popular extends Component {
     };
   }
 
+  handleSearch = () => {
+    const { navigation } = this.props;
+    NavigationUtil.goPage(navigation, "SearchPopular");
+  }
+
   render() {
-    const { visiableCustomKey } = this.props;
+    const { visiableCustomKey, themeColor } = this.props;
     const theme = {
       alignItems: 'center',
       justifyContent: 'center',
@@ -28,7 +35,24 @@ class Popular extends Component {
     });
     return (
       <View style={{ flex: 1 }}>
-        <Header title="最热" />
+        <Header
+          title="最热"
+          rightButton={
+            <TouchableOpacity>
+              <Ionicons
+                name="ios-search"
+                size={40}
+                style={{
+                  marginRight: 10,
+                  color: "#FFF",
+                }}
+                onPress={this.handleSearch}
+              />
+            </TouchableOpacity>
+          }
+          // TODO:bug:只有rightButton时,右按钮会在左边,放一个做按钮占位用
+          leftButton={<Ionicons />}
+        />
         <Tabs tabs={tabs}>
           {tabs.map(({ title, query }, i) => <ItemList key={title + "i"} tabName={title} query={query} type="popular" />)}
         </Tabs>
@@ -39,7 +63,8 @@ class Popular extends Component {
 //TODO:修改或删除
 const mapStateToProps = state => ({
   popularData: state.reducers.popularData,
-  visiableCustomKey: state.reducers.visiableCustomKey
+  visiableCustomKey: state.reducers.visiableCustomKey,
+  themeColor: state.reducers.theme.color,
 });
 
 const mapDispatchToProps = dispatch => ({

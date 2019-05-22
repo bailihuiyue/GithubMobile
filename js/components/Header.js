@@ -11,7 +11,7 @@ class Header extends Component {
         const { title, noTitle, leftButton, rightButton, themeColor } = this.props;
         const Title =
             <View style={styles.navBar}>
-                {leftButton || null}
+                {leftButton}
                 {
                     noTitle ?
                         null :
@@ -19,7 +19,7 @@ class Header extends Component {
                             <Text ellipsizeMode="head" numberOfLines={1} style={styles.title}>{title}</Text>
                         </View>
                 }
-                {rightButton || null}
+                {rightButton}
             </View>;
 
         return (

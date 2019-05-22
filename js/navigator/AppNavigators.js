@@ -8,6 +8,7 @@ import BottomTab from './BottomNaviagtors';
 import AboutAuthor from '../pages/about/AboutAuthor';
 import AboutProject from '../pages/about/AboutProject';
 import CustomKey from '../pages/CustomKey';
+import SearchPopular from '../pages/SearchPopular';
 
 const Pages = createStackNavigator(
     {
@@ -36,7 +37,13 @@ const Pages = createStackNavigator(
             navigationOptions: {
                 header: null
             } 
-        }
+        },
+        SearchPopular:{
+            screen: SearchPopular,
+            navigationOptions: {
+                header: null
+            } 
+        },
     },
     {
         defaultNavigationOptions: {
