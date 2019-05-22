@@ -12,7 +12,9 @@ function* getTheme() {
 function* getCustomKey() {
     const customKey = yield AsyncStorage.getItem("CustomKey");
     const customLanguage = yield AsyncStorage.getItem("CustomLanguage");
-    yield put({ type: actionTypes.GET_CUSTOM_KEYS, payload: { customKey, customLanguage } });
+    const visiableCustomKey = yield AsyncStorage.getItem("visiableCustomKey");
+    const visiableCustomLanguage = yield AsyncStorage.getItem("visiableCustomLanguage");
+    yield put({ type: actionTypes.GET_CUSTOM_KEYS, payload: { customKey, customLanguage, visiableCustomKey, visiableCustomLanguage } });
 }
 // function* changeLogin_async2() {
 //     yield put({ type: 'CHANGE_LOGIN', payload: { isLogin: 'CHANGE_LOGIN_ASYNC2' } });

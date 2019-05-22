@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Tabs } from '@ant-design/react-native';
-import ItemList from '../components/itemList';
+import ItemList from '../components/ItemList';
+import Header from '../components/Header';
 class Popular extends Component {
 
   constructor(props) {
@@ -13,34 +14,32 @@ class Popular extends Component {
   }
 
   render() {
+    const { visiableCustomKey } = this.props;
     const theme = {
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: '#fff',
     };
-    const tabs = [
-      { title: 'ios' },
-      { title: 'java' },
-      { title: 'vue' },
-    ];
+    const tabs = visiableCustomKey.map(item => {
+      return {
+        title: item.name,
+        query: item.path
+      }
+    });
     return (
       <View style={{ flex: 1 }}>
+        <Header title="最热" />
         <Tabs tabs={tabs}>
-          {tabs.map(({ title }) => <ItemList key={title} tabName={title} />)}
+          {tabs.map(({ title, query }, i) => <ItemList key={title + "i"} tabName={title} query={query} type="popular" />)}
         </Tabs>
       </View>
     )
   }
-
-  componentDidMount() {
-    const { navigation, themeColor } = this.props;
-  }
 }
 //TODO:修改或删除
 const mapStateToProps = state => ({
-  themeColor: state.reducers.theme.color
-  // customThemeViewVisible: state.theme.customThemeViewVisible,
-  // theme: state.theme.theme,
+  popularData: state.reducers.popularData,
+  visiableCustomKey: state.reducers.visiableCustomKey
 });
 
 const mapDispatchToProps = dispatch => ({

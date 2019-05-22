@@ -3,15 +3,12 @@ import mock from './mock';
 const listUrl = 'https://api.github.com/search/repositories?';
 
 export const loadItemList = (params, name, useOnlineData) => {
-    // TODO:获取数据源位置
-    // const useOnlineData = this.state;
-    //q=stars:>1&sort=stars
     return getData({ url: `${listUrl}${params}`, method: "GET", name, useOnlineData });
 }
 
 const getData = ({ url, method, data = {}, useOnlineData = true, name }) => {
     //获取接口数据
-    if (useOnlineData) {//useOnlineData
+    if (false) {//useOnlineData
         return fetch(url)
             .then(response => response.json())
             .catch((err) => {

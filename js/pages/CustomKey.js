@@ -8,7 +8,6 @@ import Header from '../components/Header';
 import { MyPageTxt } from '../utils/MyPageTxt';
 import mock from '../service/mock';
 import actionTypes from '../redux/actionTypes';
-import ArrayUtil from "../utils/ArrayUtil";
 
 class CustomKey extends Component {
     constructor(props) {

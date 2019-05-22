@@ -10,7 +10,7 @@ class ItemList extends Component {
         this.state = {
             data: [],
             isLoading: false,
-            pageNo: 1
+            popularPageNo: 1
         };
     }
 
@@ -42,42 +42,41 @@ class ItemList extends Component {
         )
     }
 
-    handleLoadData = () => {
-        const { tabName, useOnlineData } = this.props;
-        this.setState({ isLoading: true });
-        const query = `q=${tabName}&sort=stars&page=1&per_page=20`;
-        loadItemList(query, "loadItemList", useOnlineData).then(res => {
-            this.setState({ data: res.items, isLoading: false });
-        });
+    queryData = () => {
+        const { query, useOnlineData, type } = this.props;
+        if (type === "popular") {
+            this.setState({ isLoading: true });
+            const q = `q=${query}&sort=stars&page=1&per_page=20`;
+            loadItemList(q, "loadItemList", useOnlineData).then(res => {
+                this.setState({ data: res.items, isLoading: false });
+            });
+        }
     }
 
     handleLoadMore = (info) => {
-        const { tabName, useOnlineData } = this.props;
-        let { pageNo, data } = this.state;
-        this.setState({ isLoading: true });
-        const query = `q=${tabName}&sort=stars&page=${pageNo++}&per_page=20`;
-        loadItemList(query, "loadItemList", useOnlineData).then(res => {
-            this.setState({ data: [...data, ...res.items], isLoading: false, pageNo: pageNo++ });
-        });
+        const { query, useOnlineData, type } = this.props;
+        if (type === "popular") {
+            let { popularPageNo, data } = this.state;
+            this.setState({ isLoading: true });
+            const q = `q=${query}&sort=stars&page=${popularPageNo++}&per_page=20`;
+            loadItemList(q, "loadItemList", useOnlineData).then(res => {
+                this.setState({ data: [...data, ...res.items], isLoading: false, popularPageNo: popularPageNo++ });
+            });
+        }
+    }
+
+    handleLoadData = () => {
+        this.queryData();
     }
 
     componentWillMount() {
-        const { tabName, useOnlineData } = this.props;
-        const query = `q=${tabName}&sort=stars&page=1&per_page=20`;
-        this.setState({ isLoading: true });
-        loadItemList(query, "loadItemList", useOnlineData).then(res => {
-            this.setState({ data: res.items, isLoading: false });
-        });
+        this.queryData();
     }
 
     componentWillReceiveProps(nexProps) {
         const { tabName, useOnlineData } = nexProps;
         if (useOnlineData !== this.props.useOnlineData) {
-            this.setState({ isLoading: true });
-            const query = `q=${tabName}&sort=stars&page=1&per_page=20`;
-            loadItemList(query, "loadItemList", useOnlineData).then(res => {
-                this.setState({ data: res.items, isLoading: false });
-            });
+            this.queryData();
         }
     }
 
