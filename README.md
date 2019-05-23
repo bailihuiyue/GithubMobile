@@ -3,7 +3,8 @@
 - URL:https://api.github.com/search/repositories?
 - 查询所有的:q=stars:>1&sort=stars
 - 分类查询：q=ios&sort=stars
-
+## GitHubTrending  API
+https://github.com/trending/css?since=daily weekly monthly
 ## Usage:
 
 // var API_URL ='https://api.github.com/search/repositories?q=ios&sort=stars';

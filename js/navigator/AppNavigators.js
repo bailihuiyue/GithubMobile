@@ -9,6 +9,7 @@ import AboutAuthor from '../pages/about/AboutAuthor';
 import AboutProject from '../pages/about/AboutProject';
 import CustomKey from '../pages/CustomKey';
 import SearchPopular from '../pages/SearchPopular';
+import Trending from '../pages/Trending';
 
 const Pages = createStackNavigator(
     {
@@ -32,18 +33,18 @@ const Pages = createStackNavigator(
                 header: null
             }
         },
-        CustomKey:{
+        CustomKey: {
             screen: CustomKey,
             navigationOptions: {
                 header: null
-            } 
+            }
         },
-        SearchPopular:{
+        SearchPopular: {
             screen: SearchPopular,
             navigationOptions: {
                 header: null
-            } 
-        },
+            }
+        }
     },
     {
         defaultNavigationOptions: {

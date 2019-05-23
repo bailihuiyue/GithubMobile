@@ -65,7 +65,7 @@ const tabs = {//在这里配置页面的路由
 export default createBottomTabNavigator(
     tabs,
     {
-        initialRouteName: "PopularPage",
+        initialRouteName: "TrendingPage",
         tabBarComponent: props =>
             <TabBarComponent
                 {...props}

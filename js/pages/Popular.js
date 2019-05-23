@@ -67,11 +67,7 @@ const mapStateToProps = state => ({
   themeColor: state.reducers.theme.color,
 });
 
-const mapDispatchToProps = dispatch => ({
-  getTheme: () => dispatch({ type: actionTypes.GET_THEME })
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Popular);
+export default connect(mapStateToProps)(Popular);
 
 const styles = StyleSheet.create({
   container: {

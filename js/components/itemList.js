@@ -3,7 +3,6 @@ import { Text, View, FlatList, TouchableOpacity, StyleSheet, RefreshControl, Ima
 import { connect } from 'react-redux';
 import FavIcon from './favIcon';
 import { loadItemList } from '../service/api';
-
 class ItemList extends Component {
     constructor(props) {
         super(props);
@@ -14,12 +13,12 @@ class ItemList extends Component {
         };
     }
 
-    Item = (item) => {
+    Item = (item, type) => {
         return (
             <TouchableOpacity>
                 <View style={styles.wrap}>
                     <Text style={styles.title}>
-                        {item.full_name}
+                        {item.full_name || item.fullName}
                     </Text>
                     <Text style={styles.description}>
                         {item.description}
@@ -28,12 +27,12 @@ class ItemList extends Component {
                         <View style={styles.row}>
                             <Text>Author: </Text>
                             <Image style={{ height: 22, width: 22 }}
-                                source={{ uri: item.owner.avatar_url }}
+                                source={{ uri: item.owner ? item.owner.avatar_url : item.contributors[0] }}
                             />
                         </View>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                             <Text>Start: </Text>
-                            <Text>{item.stargazers_count}</Text>
+                            <Text>{item.stargazers_count || item.meta.split(" ")[0]}</Text>
                         </View>
                         <FavIcon theme="" />
                     </View>
@@ -43,12 +42,19 @@ class ItemList extends Component {
     }
 
     queryData = () => {
-        const { query, useOnlineData, type } = this.props;
+        const { query, useOnlineData, type, timeSpan } = this.props;
         if (type === "popular") {
             this.setState({ isLoading: true });
             const q = `q=${query}&sort=stars&page=1&per_page=20`;
-            loadItemList(q, "loadItemList", useOnlineData).then(res => {
+            loadItemList(q, "popular", useOnlineData).then(res => {
                 this.setState({ data: res.items, isLoading: false });
+            });
+        } else {
+            // console.log(timeSpan);
+            this.setState({ isLoading: true });
+            const q = `${query}?since=${timeSpan || "monthly"}`;
+            loadItemList(q, "trending", useOnlineData).then(res => {
+                this.setState({ data: res, isLoading: false });
             });
         }
     }
@@ -74,8 +80,8 @@ class ItemList extends Component {
     }
 
     componentWillReceiveProps(nexProps) {
-        const { tabName, useOnlineData } = nexProps;
-        if (useOnlineData !== this.props.useOnlineData) {
+        const { tabName, useOnlineData, timeSpan } = nexProps;
+        if (useOnlineData !== this.props.useOnlineData || timeSpan !== this.props.useOnlineData) {
             this.queryData();
         }
     }

@@ -9,6 +9,8 @@ const defaultState = {
     useOnlineData: true,
     trendingData: [],
     popularData: [],
+    visiableCustomKey:[],
+    visiableCustomLanguage:[]
 }
 
 export default (state = defaultState, { type, payload }) => {

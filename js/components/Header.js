@@ -8,7 +8,7 @@ const STATUS_BAR_HEIGHT = DeviceInfo.isIPhoneX_deprecated ? 0 : 20;//状态栏�
 
 class Header extends Component {
     render() {
-        const { title, noTitle, leftButton, rightButton, themeColor } = this.props;
+        const { title, noTitle, leftButton, rightButton, themeColor, button } = this.props;
         const Title =
             <View style={styles.navBar}>
                 {leftButton}
@@ -16,6 +16,7 @@ class Header extends Component {
                     noTitle ?
                         null :
                         <View style={styles.navBarTitleContainer}>
+                            {button}
                             <Text ellipsizeMode="head" numberOfLines={1} style={styles.title}>{title}</Text>
                         </View>
                 }
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
         height: Platform.OS === 'ios' ? NAV_BAR_HEIGHT_IOS : NAV_BAR_HEIGHT_ANDROID,
     },
     navBarTitleContainer: {
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         position: 'absolute',
