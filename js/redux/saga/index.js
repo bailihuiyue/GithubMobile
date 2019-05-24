@@ -16,11 +16,17 @@ function* getCustomKey() {
     const visiableCustomLanguage = yield AsyncStorage.getItem("visiableCustomLanguage");
     yield put({ type: actionTypes.GET_CUSTOM_KEYS, payload: { customKey, customLanguage, visiableCustomKey, visiableCustomLanguage } });
 }
+function* getFavorite() {
+    const favoritePopular = yield AsyncStorage.getItem("favoritePopular");
+    const favoriteTrending = yield AsyncStorage.getItem("favoriteTrending");
+    yield put({ type: actionTypes.GET_FAVORITE, payload: { favoritePopular, favoriteTrending } });
+}
 // function* changeLogin_async2() {
 //     yield put({ type: 'CHANGE_LOGIN', payload: { isLogin: 'CHANGE_LOGIN_ASYNC2' } });
 // }
 
 export default function* rootSaga() {
     yield takeEvery(actionTypes.GET_THEME, getTheme);
+    yield takeEvery("getFavorite", getFavorite);
     yield takeEvery("getCustomKeysAndLang", getCustomKey);
 }

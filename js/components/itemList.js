@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, FlatList, TouchableOpacity, StyleSheet, RefreshControl, Image } from 'react-native'
+import { Text, View, FlatList, TouchableOpacity, StyleSheet, RefreshControl, Image, AsyncStorage } from 'react-native'
 import { connect } from 'react-redux';
 import FavIcon from './favIcon';
 import { loadItemList } from '../service/api';
@@ -34,7 +34,7 @@ class ItemList extends Component {
                             <Text>Start: </Text>
                             <Text>{item.stargazers_count || item.meta.split(" ")[0]}</Text>
                         </View>
-                        <FavIcon theme="" />
+                        <FavIcon item={item} type={type} />
                     </View>
                 </View>
             </TouchableOpacity>
@@ -42,25 +42,26 @@ class ItemList extends Component {
     }
 
     queryData = () => {
-        const { query, useOnlineData, type, timeSpan } = this.props;
+        const { query, useOnlineData, type, timeSpan, data } = this.props;
         if (type === "popular") {
             this.setState({ isLoading: true });
             const q = `q=${query}&sort=stars&page=1&per_page=20`;
             loadItemList(q, "popular", useOnlineData).then(res => {
                 this.setState({ data: res.items, isLoading: false });
             });
-        } else {
-            // console.log(timeSpan);
+        } else if (type === "trending") {
             this.setState({ isLoading: true });
             const q = `${query}?since=${timeSpan || "monthly"}`;
             loadItemList(q, "trending", useOnlineData).then(res => {
                 this.setState({ data: res, isLoading: false });
             });
+        } else if (type === "favorite") {
+            this.setState({ data, isLoading: false });
         }
     }
 
     handleLoadMore = (info) => {
-        const { query, useOnlineData, type } = this.props;
+        const { query, useOnlineData, type, data } = this.props;
         if (type === "popular") {
             let { popularPageNo, data } = this.state;
             this.setState({ isLoading: true });
@@ -72,7 +73,10 @@ class ItemList extends Component {
     }
 
     handleLoadData = () => {
-        this.queryData();
+        const { data } = this.props;
+        if (!data) {
+            this.queryData();
+        }
     }
 
     componentWillMount() {
@@ -88,11 +92,12 @@ class ItemList extends Component {
 
     render() {
         const { data, isLoading } = this.state;
+        const { type } = this.props;
         return (
             <View>
                 <FlatList
                     data={data}
-                    renderItem={({ item }) => this.Item(item)}
+                    renderItem={({ item }) => this.Item(item, type)}
                     keyExtractor={item => "" + (item.id || item.fullName)}
                     onEndReached={this.handleLoadMore}
                     refreshControl={

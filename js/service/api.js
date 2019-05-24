@@ -9,7 +9,7 @@ export const loadItemList = (params, name, useOnlineData) => {
 
 const getData = ({ url, method, useOnlineData = true, name }) => {
     //获取接口数据
-    if (true) {//useOnlineData
+    if (false) {//useOnlineData
         if (name === "trending") {
             return new Trending().fetchTrending(url)
                 .then(response => response)

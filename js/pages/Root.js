@@ -18,8 +18,9 @@ class Root extends Component {
     }
 
     componentWillMount() {
-        const { getTheme, getCustomKeysAndLang } = this.props;
+        const { getTheme, getCustomKeysAndLang, getFavorite } = this.props;
         getCustomKeysAndLang();
+        getFavorite()
         getTheme();
     }
 
@@ -45,6 +46,7 @@ const mapDispatchToProps = dispatch => ({
     back: () => dispatch(NavigationActions.back()),
     getTheme: () => dispatch({ type: actionTypes.GET_THEME }),
     getCustomKeysAndLang: () => dispatch({ type: "getCustomKeysAndLang" }),
+    getFavorite: () => dispatch({ type: "getFavorite" })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Root);

@@ -9,11 +9,15 @@ const defaultState = {
     useOnlineData: true,
     trendingData: [],
     popularData: [],
-    visiableCustomKey:[],
-    visiableCustomLanguage:[]
+    visiableCustomKey: [],
+    visiableCustomLanguage: [],
+    favoriteItem: [],
+    favoritePopular: [],
+    favoriteTrending: [],
 }
 
 export default (state = defaultState, { type, payload }) => {
+    const { favoritePopular, favoriteTrending } = payload || {};
     switch (type) {
         case actionTypes.SET_THEME:
             AsyncStorage.setItem("themeColor", payload.theme);
@@ -46,13 +50,35 @@ export default (state = defaultState, { type, payload }) => {
             };
         case actionTypes.GET_CUSTOM_KEYS:
             //TODO:tip:reducers都是同步的,所以在这里写异步没有用,异步要在effects里面写
-            const { customKey, customLanguage, visiableCustomKey, visiableCustomLanguage } = payload;
+            const { customKey, customLanguage, visiableCustomKey, visiableCustomLanguage, favoriteItem } = payload;
             return {
                 ...state,
                 popularData: JSON.parse(customKey) || [],
                 trendingData: JSON.parse(customLanguage) || [],
                 visiableCustomKey: JSON.parse(visiableCustomKey) || [],
                 visiableCustomLanguage: JSON.parse(visiableCustomLanguage) || [],
+            };
+        case actionTypes.SET_FAVORITE:
+            // TODO:存储一个用来保存收藏key数组
+            if (favoritePopular) {
+                AsyncStorage.setItem("favoritePopular", JSON.stringify(favoritePopular));
+                return {
+                    ...state,
+                    favoritePopular: favoritePopular
+                };
+            }
+            if (favoriteTrending) {
+                AsyncStorage.setItem("favoriteTrending", JSON.stringify(favoriteTrending));
+                return {
+                    ...state,
+                    favoriteTrending: favoriteTrending
+                };
+            }
+        case actionTypes.GET_FAVORITE:
+            return {
+                ...state,
+                favoritePopular: JSON.parse(favoritePopular || "[]"),
+                favoriteTrending: JSON.parse(favoriteTrending || "[]"),
             };
         default:
             return state;
