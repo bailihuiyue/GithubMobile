@@ -7,13 +7,6 @@ import Header from '../components/Header';
 
 class Favorite extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-
   render() {
     const { favoritePopular, favoriteTrending } = this.props;
     return (

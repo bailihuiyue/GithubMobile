@@ -4,15 +4,7 @@ import { connect } from 'react-redux';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 class FavIcon extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isFavorite: false
-        };
-    }
-
     onPressFavorite = (item) => {
-        const { isFavorite } = this.state;
         const { favoritePopular, favoriteTrending, type, setFavorite } = this.props;
         let temp = [];
         if (type === "popular") {
@@ -22,7 +14,7 @@ class FavIcon extends Component {
                 [...favoritePopular].filter(data => data.id !== item.id) :
                 [...favoritePopular, item];
             setFavorite({ favoritePopular: temp });
-        } else {
+        } else if (type === "trending") {
             temp = [...favoriteTrending];
             temp = temp.filter(data => data.fullName === item.fullName);
             temp = temp.length > 0 ?
@@ -30,12 +22,10 @@ class FavIcon extends Component {
                 [...favoriteTrending, item];
             setFavorite({ favoriteTrending: temp });
         }
-        this.setState({ isFavorite: !isFavorite })
     }
 
     render() {
-        const { themeColor, item } = this.props;
-        const { isFavorite } = this.state;
+        const { themeColor, item, isFavorite } = this.props;
         return (
             <TouchableOpacity
                 style={{ padding: 6 }}
@@ -52,8 +42,8 @@ class FavIcon extends Component {
 }
 const mapStateToProps = state => ({
     themeColor: state.reducers.theme.color,
-    favoritePopular: state.reducers.favoriteItem,
-    favoriteTrending: state.reducers.favoriteTrending
+    favoritePopular: state.reducers.favoritePopular,
+    favoriteTrending: state.reducers.favoriteTrending,
 });
 
 const mapDispatchToProps = dispatch => ({

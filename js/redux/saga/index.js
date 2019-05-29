@@ -19,11 +19,10 @@ function* getCustomKey() {
 function* getFavorite() {
     const favoritePopular = yield AsyncStorage.getItem("favoritePopular");
     const favoriteTrending = yield AsyncStorage.getItem("favoriteTrending");
-    yield put({ type: actionTypes.GET_FAVORITE, payload: { favoritePopular, favoriteTrending } });
+    const favPopularKeys = yield AsyncStorage.getItem("favPopularKeys");
+    const favTrendingKeys = yield AsyncStorage.getItem("favTrendingKeys");
+    yield put({ type: actionTypes.GET_FAVORITE, payload: { favoritePopular, favoriteTrending, favPopularKeys, favTrendingKeys } });
 }
-// function* changeLogin_async2() {
-//     yield put({ type: 'CHANGE_LOGIN', payload: { isLogin: 'CHANGE_LOGIN_ASYNC2' } });
-// }
 
 export default function* rootSaga() {
     yield takeEvery(actionTypes.GET_THEME, getTheme);

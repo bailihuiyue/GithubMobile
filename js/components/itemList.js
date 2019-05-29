@@ -14,6 +14,20 @@ class ItemList extends Component {
     }
 
     Item = (item, type) => {
+        const { favPopularKeys, favTrendingKeys } = this.props;
+        let arr = [];
+        let isFavorite = false;
+        let favoriteType = "";
+        if (item.id) {
+            arr = favPopularKeys.filter((data, i) => data === item.id);
+            if (type === "favorite") { favoriteType = "popular"; }
+        } else {
+            arr = favTrendingKeys.filter(data => data === item.fullName);
+            if (type === "favorite") { favoriteType = "trending"; }
+        }
+        if (arr.length > 0) {
+            isFavorite = true;
+        }
         return (
             <TouchableOpacity>
                 <View style={styles.wrap}>
@@ -34,15 +48,15 @@ class ItemList extends Component {
                             <Text>Start: </Text>
                             <Text>{item.stargazers_count || item.meta.split(" ")[0]}</Text>
                         </View>
-                        <FavIcon item={item} type={type} />
+                        <FavIcon item={item} type={favoriteType || type} isFavorite={isFavorite} />
                     </View>
                 </View>
             </TouchableOpacity>
         )
     }
 
-    queryData = () => {
-        const { query, useOnlineData, type, timeSpan, data } = this.props;
+    queryData = (data) => {
+        const { query, useOnlineData, type, timeSpan } = this.props;
         if (type === "popular") {
             this.setState({ isLoading: true });
             const q = `q=${query}&sort=stars&page=1&per_page=20`;
@@ -61,7 +75,7 @@ class ItemList extends Component {
     }
 
     handleLoadMore = (info) => {
-        const { query, useOnlineData, type, data } = this.props;
+        const { query, useOnlineData, type } = this.props;
         if (type === "popular") {
             let { popularPageNo, data } = this.state;
             this.setState({ isLoading: true });
@@ -80,13 +94,17 @@ class ItemList extends Component {
     }
 
     componentWillMount() {
-        this.queryData();
+        const { data } = this.props;
+        this.queryData(data);
     }
 
     componentWillReceiveProps(nexProps) {
-        const { tabName, useOnlineData, timeSpan } = nexProps;
-        if (useOnlineData !== this.props.useOnlineData || timeSpan !== this.props.useOnlineData) {
-            this.queryData();
+        const { useOnlineData, timeSpan, data } = nexProps;
+        if (useOnlineData !== this.props.useOnlineData ||
+            timeSpan !== this.props.useOnlineData ||
+            data !== this.props.data) {
+            //TODO:bug:不知道为什么,必须在queryData里传值数据才正常,在queryData方法中解构data,数据总是慢一拍,显示上一次的值
+            this.queryData(data);
         }
     }
 
@@ -114,7 +132,9 @@ class ItemList extends Component {
 }
 
 const mapStateToProps = state => ({
-    useOnlineData: state.reducers.useOnlineData
+    useOnlineData: state.reducers.useOnlineData,
+    favPopularKeys: state.reducers.favPopularKeys,
+    favTrendingKeys: state.reducers.favTrendingKeys
 });
 
 export default connect(mapStateToProps)(ItemList);

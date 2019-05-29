@@ -14,6 +14,8 @@ const defaultState = {
     favoriteItem: [],
     favoritePopular: [],
     favoriteTrending: [],
+    favPopularKeys: [],
+    favTrendingKeys: []
 }
 
 export default (state = defaultState, { type, payload }) => {
@@ -61,24 +63,33 @@ export default (state = defaultState, { type, payload }) => {
         case actionTypes.SET_FAVORITE:
             // TODO:存储一个用来保存收藏key数组
             if (favoritePopular) {
+                const favPopularKeys = favoritePopular.map(item => item.id);
                 AsyncStorage.setItem("favoritePopular", JSON.stringify(favoritePopular));
+                AsyncStorage.setItem("favPopularKeys", JSON.stringify(favPopularKeys));
                 return {
                     ...state,
-                    favoritePopular: favoritePopular
+                    favoritePopular: favoritePopular,
+                    favPopularKeys
                 };
             }
             if (favoriteTrending) {
+                const favTrendingKeys = favoriteTrending.map(item => item.fullName);
                 AsyncStorage.setItem("favoriteTrending", JSON.stringify(favoriteTrending));
+                AsyncStorage.setItem("favTrendingKeys", JSON.stringify(favTrendingKeys));
                 return {
                     ...state,
-                    favoriteTrending: favoriteTrending
+                    favoriteTrending: favoriteTrending,
+                    favTrendingKeys
                 };
             }
         case actionTypes.GET_FAVORITE:
+            const { favPopularKeys, favTrendingKeys } = payload;
             return {
                 ...state,
                 favoritePopular: JSON.parse(favoritePopular || "[]"),
                 favoriteTrending: JSON.parse(favoriteTrending || "[]"),
+                favPopularKeys: JSON.parse(favPopularKeys || "[]"),
+                favTrendingKeys: JSON.parse(favTrendingKeys || "[]"),
             };
         default:
             return state;
