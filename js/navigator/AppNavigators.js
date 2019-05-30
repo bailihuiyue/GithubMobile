@@ -10,6 +10,7 @@ import AboutProject from '../pages/about/AboutProject';
 import CustomKey from '../pages/CustomKey';
 import SearchPopular from '../pages/SearchPopular';
 import Trending from '../pages/Trending';
+import WebViewPage from '../pages/WebViewPage';
 
 const Pages = createStackNavigator(
     {
@@ -41,6 +42,12 @@ const Pages = createStackNavigator(
         },
         SearchPopular: {
             screen: SearchPopular,
+            navigationOptions: {
+                header: null
+            }
+        },
+        WebViewPage: {
+            screen: WebViewPage,
             navigationOptions: {
                 header: null
             }

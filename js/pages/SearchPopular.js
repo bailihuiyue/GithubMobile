@@ -27,6 +27,7 @@ class SearchPopular extends Component {
     }
 
     render() {
+        const { navigation } = this.props;
         const { searchText, query } = this.state;
         return (
             <View style={{ flex: 1 }}>
@@ -53,7 +54,7 @@ class SearchPopular extends Component {
                         </TouchableOpacity>
                     }
                 />
-                <ItemList query={query} type="search" />
+                <ItemList query={query} type="search" navigation={navigation} />
             </View>
         )
     }

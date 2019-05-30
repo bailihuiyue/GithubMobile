@@ -2012,7 +2012,257 @@ const popularMock = {
         }
     ]
 }
-const trendingMock = [{ "fullName": "microsoft/terminal", "url": "/microsoft/terminal", "description": "The new Windows Terminal, and the original Windows console host -- all in the same place!", "language": "C++", "meta": "38,664 stars this month", "contributors": ["https://avatars2.githubusercontent.com/u/18221333?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "40,327" }, { "fullName": "jackfrued/Python-100-Days", "url": "/jackfrued/Python-100-Days", "description": "Python - 100天从新手到大师", "language": "Jupyter Notebook", "meta": "26,040 stars this month", "contributors": ["https://avatars3.githubusercontent.com/u/49554879?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "32,432" }, { "fullName": "TheAlgorithms/Python", "url": "/TheAlgorithms/Python", "description": "All Algorithms implemented in Python", "language": "Python", "meta": "16,871 stars this month", "contributors": ["https://avatars1.githubusercontent.com/u/14276147?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "42,208" }, { "fullName": "996icu/996.ICU", "url": "/996icu/996.ICU", "description": "Repo for counting stars and contributing. Press F to pay respect to glorious developers.", "language": "Rust", "meta": "15,026 stars this month", "contributors": ["https://avatars1.githubusercontent.com/u/48942249?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "244,727" }, { "fullName": "MisterBooo/LeetCodeAnimation", "url": "/MisterBooo/LeetCodeAnimation", "description": "Demonstrate all the questions on LeetCode in the form of animation.（用动画的形式呈现解LeetCode题目的思路）", "language": "Java", "meta": "10,387 stars this month", "contributors": ["https://avatars0.githubusercontent.com/u/15308811?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "26,828" }, { "fullName": "azl397985856/leetcode", "url": "/azl397985856/leetcode", "description": "LeetCode Solutions: A Record of My Problem Solving Journey.( leetcode题解，记录自己的leetcode解题之路。)", "language": "JavaScript", "meta": "7,637 stars this month", "contributors": ["https://avatars2.githubusercontent.com/u/12479470?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "7,890" }, { "fullName": "cool-RR/PySnooper", "url": "/cool-RR/PySnooper", "description": "Never use print for debugging again", "language": "Python", "meta": "6,787 stars this month", "contributors": ["https://avatars1.githubusercontent.com/u/56778?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "10,705" }, { "fullName": "MSWorkers/support.996.ICU", "url": "/MSWorkers/support.996.ICU", "description": "Microsoft and GitHub Workers Support 996.ICU", "language": "", "meta": "6,678 stars this month", "contributors": ["https://avatars2.githubusercontent.com/u/41247880?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "9,506" }, { "fullName": "sveltejs/svelte", "url": "/sveltejs/svelte", "description": "Cybernetically enhanced web apps", "language": "JavaScript", "meta": "6,168 stars this month", "contributors": ["https://avatars0.githubusercontent.com/u/1162160?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "16,352" }, { "fullName": "CyC2018/CS-Notes", "url": "/CyC2018/CS-Notes", "description": "<g-emoji class=\"g-emoji\" alias=\"books\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png\">📚</g-emoji> 技术面试必备基础知识、Leetcode 题解、后端面试、Java 面试、春招、秋招、操作系统、计算机网络、系统设计", "language": "Java", "meta": "5,088 stars this month", "contributors": ["https://avatars1.githubusercontent.com/u/36260787?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "63,256" }, { "fullName": "dwmkerr/hacker-laws", "url": "/dwmkerr/hacker-laws", "description": "<g-emoji class=\"g-emoji\" alias=\"computer\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4bb.png\">💻</g-emoji><g-emoji class=\"g-emoji\" alias=\"book\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png\">📖</g-emoji> Laws, Theories, Principles and Patterns that developers will find useful.", "language": "", "meta": "5,423 stars this month", "contributors": ["https://avatars0.githubusercontent.com/u/1926984?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "5,503" }, { "fullName": "Snailclimb/JavaGuide", "url": "/Snailclimb/JavaGuide", "description": "【Java学习+面试指南】 一份涵盖大部分Java程序员所需要掌握的核心知识。", "language": "Java", "meta": "4,525 stars this month", "contributors": ["https://avatars0.githubusercontent.com/u/29880145?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "40,835" }, { "fullName": "abhat222/Data-Science--Cheat-Sheet", "url": "/abhat222/Data-Science--Cheat-Sheet", "description": "Cheat Sheets", "language": "", "meta": "4,204 stars this month", "contributors": ["https://avatars3.githubusercontent.com/u/46282114?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "6,333" }, { "fullName": "kkuchta/css-only-chat", "url": "/kkuchta/css-only-chat", "description": "A truly monstrous async web chat using no JS whatsoever on the frontend", "language": "Ruby", "meta": "4,735 stars this month", "contributors": ["https://avatars3.githubusercontent.com/u/820965?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "4,738" }, { "fullName": "machinelearningmindset/machine-learning-course", "url": "/machinelearningmindset/machine-learning-course", "description": "<g-emoji class=\"g-emoji\" alias=\"speech_balloon\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4ac.png\">💬</g-emoji> Machine Learning Course with Python", "language": "Python", "meta": "4,419 stars this month", "contributors": ["https://avatars0.githubusercontent.com/u/47649014?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "4,440" }, { "fullName": "flutter/flutter", "url": "/flutter/flutter", "description": "Flutter makes it easy and fast to build beautiful mobile apps.", "language": "Dart", "meta": "4,253 stars this month", "contributors": ["https://avatars3.githubusercontent.com/u/112007?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "64,795" }, { "fullName": "jolaleye/cssfx", "url": "/jolaleye/cssfx", "description": "<g-emoji class=\"g-emoji\" alias=\"sparkles\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2728.png\">✨</g-emoji> Beautifully simple click-to-copy CSS effects", "language": "Vue", "meta": "4,117 stars this month", "contributors": ["https://avatars3.githubusercontent.com/u/32244714?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "4,124" }, { "fullName": "lettier/3d-game-shaders-for-beginners", "url": "/lettier/3d-game-shaders-for-beginners", "description": "<g-emoji class=\"g-emoji\" alias=\"video_game\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f3ae.png\">🎮</g-emoji> A step-by-step guide on how to implement SSAO, depth of field, lighting, normal mapping, and more for your 3D game.", "language": "C++", "meta": "3,820 stars this month", "contributors": ["https://avatars1.githubusercontent.com/u/1661343?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "3,828" }, { "fullName": "dgryski/go-perfbook", "url": "/dgryski/go-perfbook", "description": "Thoughts on Go performance optimization", "language": "", "meta": "3,624 stars this month", "contributors": ["https://avatars0.githubusercontent.com/u/970862?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "7,514" }, { "fullName": "jaywcjlove/linux-command", "url": "/jaywcjlove/linux-command", "description": "Linux命令大全搜索工具，内容包含Linux命令手册、详解、学习、搜集。<a href=\"https://git.io/linux\" rel=\"nofollow\">https://git.io/linux</a>", "language": "HTML", "meta": "3,183 stars this month", "contributors": ["https://avatars2.githubusercontent.com/u/1680273?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "7,640" }, { "fullName": "vuejs/vue", "url": "/vuejs/vue", "description": "<g-emoji class=\"g-emoji\" alias=\"vulcan_salute\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f596.png\">🖖</g-emoji> Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.", "language": "JavaScript", "meta": "3,137 stars this month", "contributors": ["https://avatars2.githubusercontent.com/u/499550?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "139,238" }, { "fullName": "jlevy/the-art-of-command-line", "url": "/jlevy/the-art-of-command-line", "description": "Master the command line, in one page", "language": "", "meta": "3,276 stars this month", "contributors": ["https://avatars2.githubusercontent.com/u/2058167?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "43,721" }, { "fullName": "HFO4/gameboy.live", "url": "/HFO4/gameboy.live", "description": "<g-emoji class=\"g-emoji\" alias=\"joystick\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f579.png\">🕹️</g-emoji> A basic gameboy emulator with terminal \"Cloud Gaming\" support", "language": "Go", "meta": "3,223 stars this month", "contributors": ["https://avatars1.githubusercontent.com/u/16058869?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "3,226" }, { "fullName": "macrozheng/mall", "url": "/macrozheng/mall", "description": "mall项目是一套电商系统，包括前台商城系统及后台管理系统，基于SpringBoot+MyBatis实现。 前台商城系统包含首页门户、商品推荐、商品搜索、商品展示、购物车、订单流程、会员中心、客户服务、帮助中心等模块。 后台管理系统包含商品管理、订单管理、会员管理、促销管理、运营管理、内容管理、统计报表、财务管理、权限管理、设置等模块。", "language": "Java", "meta": "2,665 stars this month", "contributors": ["https://avatars1.githubusercontent.com/u/15903809?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "13,745" }, { "fullName": "transloadit/uppy", "url": "/transloadit/uppy", "description": "The next open source file uploader for web browsers <g-emoji class=\"g-emoji\" alias=\"dog\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f436.png\">🐶</g-emoji>", "language": "JavaScript", "meta": "3,132 stars this month", "contributors": ["https://avatars1.githubusercontent.com/u/1199054?s=40&amp;v=4"], "contributorsUrl": "d-inline-block", "starCount": "", "forkCount": "19,421" }];
+const trendingMock = [{
+    "fullName": "microsoft/terminal",
+    "url": "/microsoft/terminal",
+    "description": "The new Windows Terminal, and the original Windows console host -- all in the same place!",
+    "language": "C++",
+    "meta": "38,664 stars this month",
+    "contributors": ["https://avatars2.githubusercontent.com/u/18221333?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "40,327"
+}, {
+    "fullName": "jackfrued/Python-100-Days",
+    "url": "/jackfrued/Python-100-Days",
+    "description": "Python - 100天从新手到大师",
+    "language": "Jupyter Notebook",
+    "meta": "26,040 stars this month",
+    "contributors": ["https://avatars3.githubusercontent.com/u/49554879?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "32,432"
+}, {
+    "fullName": "TheAlgorithms/Python",
+    "url": "/TheAlgorithms/Python",
+    "description": "All Algorithms implemented in Python",
+    "language": "Python",
+    "meta": "16,871 stars this month",
+    "contributors": ["https://avatars1.githubusercontent.com/u/14276147?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "42,208"
+}, {
+    "fullName": "996icu/996.ICU",
+    "url": "/996icu/996.ICU",
+    "description": "Repo for counting stars and contributing. Press F to pay respect to glorious developers.",
+    "language": "Rust",
+    "meta": "15,026 stars this month",
+    "contributors": ["https://avatars1.githubusercontent.com/u/48942249?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "244,727"
+}, {
+    "fullName": "MisterBooo/LeetCodeAnimation",
+    "url": "/MisterBooo/LeetCodeAnimation",
+    "description": "Demonstrate all the questions on LeetCode in the form of animation.（用动画的形式呈现解LeetCode题目的思路）",
+    "language": "Java",
+    "meta": "10,387 stars this month",
+    "contributors": ["https://avatars0.githubusercontent.com/u/15308811?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "26,828"
+}, {
+    "fullName": "azl397985856/leetcode",
+    "url": "/azl397985856/leetcode",
+    "description": "LeetCode Solutions: A Record of My Problem Solving Journey.( leetcode题解，记录自己的leetcode解题之路。)",
+    "language": "JavaScript",
+    "meta": "7,637 stars this month",
+    "contributors": ["https://avatars2.githubusercontent.com/u/12479470?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "7,890"
+}, {
+    "fullName": "cool-RR/PySnooper",
+    "url": "/cool-RR/PySnooper",
+    "description": "Never use print for debugging again",
+    "language": "Python",
+    "meta": "6,787 stars this month",
+    "contributors": ["https://avatars1.githubusercontent.com/u/56778?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "10,705"
+}, {
+    "fullName": "MSWorkers/support.996.ICU",
+    "url": "/MSWorkers/support.996.ICU",
+    "description": "Microsoft and GitHub Workers Support 996.ICU",
+    "language": "",
+    "meta": "6,678 stars this month",
+    "contributors": ["https://avatars2.githubusercontent.com/u/41247880?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "9,506"
+}, {
+    "fullName": "sveltejs/svelte",
+    "url": "/sveltejs/svelte",
+    "description": "Cybernetically enhanced web apps",
+    "language": "JavaScript",
+    "meta": "6,168 stars this month",
+    "contributors": ["https://avatars0.githubusercontent.com/u/1162160?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "16,352"
+}, {
+    "fullName": "CyC2018/CS-Notes",
+    "url": "/CyC2018/CS-Notes",
+    "description": "<g-emoji class=\"g-emoji\" alias=\"books\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png\">📚</g-emoji> 技术面试必备基础知识、Leetcode 题解、后端面试、Java 面试、春招、秋招、操作系统、计算机网络、系统设计",
+    "language": "Java",
+    "meta": "5,088 stars this month",
+    "contributors": ["https://avatars1.githubusercontent.com/u/36260787?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "63,256"
+}, {
+    "fullName": "dwmkerr/hacker-laws",
+    "url": "/dwmkerr/hacker-laws",
+    "description": "<g-emoji class=\"g-emoji\" alias=\"computer\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4bb.png\">💻</g-emoji><g-emoji class=\"g-emoji\" alias=\"book\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png\">📖</g-emoji> Laws, Theories, Principles and Patterns that developers will find useful.",
+    "language": "",
+    "meta": "5,423 stars this month",
+    "contributors": ["https://avatars0.githubusercontent.com/u/1926984?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "5,503"
+}, {
+    "fullName": "Snailclimb/JavaGuide",
+    "url": "/Snailclimb/JavaGuide",
+    "description": "【Java学习+面试指南】 一份涵盖大部分Java程序员所需要掌握的核心知识。",
+    "language": "Java",
+    "meta": "4,525 stars this month",
+    "contributors": ["https://avatars0.githubusercontent.com/u/29880145?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "40,835"
+}, {
+    "fullName": "abhat222/Data-Science--Cheat-Sheet",
+    "url": "/abhat222/Data-Science--Cheat-Sheet",
+    "description": "Cheat Sheets",
+    "language": "",
+    "meta": "4,204 stars this month",
+    "contributors": ["https://avatars3.githubusercontent.com/u/46282114?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "6,333"
+}, {
+    "fullName": "kkuchta/css-only-chat",
+    "url": "/kkuchta/css-only-chat",
+    "description": "A truly monstrous async web chat using no JS whatsoever on the frontend",
+    "language": "Ruby",
+    "meta": "4,735 stars this month",
+    "contributors": ["https://avatars3.githubusercontent.com/u/820965?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "4,738"
+}, {
+    "fullName": "machinelearningmindset/machine-learning-course",
+    "url": "/machinelearningmindset/machine-learning-course",
+    "description": "<g-emoji class=\"g-emoji\" alias=\"speech_balloon\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4ac.png\">💬</g-emoji> Machine Learning Course with Python",
+    "language": "Python",
+    "meta": "4,419 stars this month",
+    "contributors": ["https://avatars0.githubusercontent.com/u/47649014?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "4,440"
+}, {
+    "fullName": "flutter/flutter",
+    "url": "/flutter/flutter",
+    "description": "Flutter makes it easy and fast to build beautiful mobile apps.",
+    "language": "Dart",
+    "meta": "4,253 stars this month",
+    "contributors": ["https://avatars3.githubusercontent.com/u/112007?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "64,795"
+}, {
+    "fullName": "jolaleye/cssfx",
+    "url": "/jolaleye/cssfx",
+    "description": "<g-emoji class=\"g-emoji\" alias=\"sparkles\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2728.png\">✨</g-emoji> Beautifully simple click-to-copy CSS effects",
+    "language": "Vue",
+    "meta": "4,117 stars this month",
+    "contributors": ["https://avatars3.githubusercontent.com/u/32244714?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "4,124"
+}, {
+    "fullName": "lettier/3d-game-shaders-for-beginners",
+    "url": "/lettier/3d-game-shaders-for-beginners",
+    "description": "<g-emoji class=\"g-emoji\" alias=\"video_game\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f3ae.png\">🎮</g-emoji> A step-by-step guide on how to implement SSAO, depth of field, lighting, normal mapping, and more for your 3D game.",
+    "language": "C++",
+    "meta": "3,820 stars this month",
+    "contributors": ["https://avatars1.githubusercontent.com/u/1661343?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "3,828"
+}, {
+    "fullName": "dgryski/go-perfbook",
+    "url": "/dgryski/go-perfbook",
+    "description": "Thoughts on Go performance optimization",
+    "language": "",
+    "meta": "3,624 stars this month",
+    "contributors": ["https://avatars0.githubusercontent.com/u/970862?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "7,514"
+}, {
+    "fullName": "jaywcjlove/linux-command",
+    "url": "/jaywcjlove/linux-command",
+    "description": "Linux命令大全搜索工具，内容包含Linux命令手册、详解、学习、搜集。<a href=\"https://git.io/linux\" rel=\"nofollow\">https://git.io/linux</a>",
+    "language": "HTML",
+    "meta": "3,183 stars this month",
+    "contributors": ["https://avatars2.githubusercontent.com/u/1680273?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "7,640"
+}, {
+    "fullName": "vuejs/vue",
+    "url": "/vuejs/vue",
+    "description": "<g-emoji class=\"g-emoji\" alias=\"vulcan_salute\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f596.png\">🖖</g-emoji> Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
+    "language": "JavaScript",
+    "meta": "3,137 stars this month",
+    "contributors": ["https://avatars2.githubusercontent.com/u/499550?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "139,238"
+}, {
+    "fullName": "jlevy/the-art-of-command-line",
+    "url": "/jlevy/the-art-of-command-line",
+    "description": "Master the command line, in one page",
+    "language": "",
+    "meta": "3,276 stars this month",
+    "contributors": ["https://avatars2.githubusercontent.com/u/2058167?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "43,721"
+}, {
+    "fullName": "HFO4/gameboy.live",
+    "url": "/HFO4/gameboy.live",
+    "description": "<g-emoji class=\"g-emoji\" alias=\"joystick\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f579.png\">🕹️</g-emoji> A basic gameboy emulator with terminal \"Cloud Gaming\" support",
+    "language": "Go",
+    "meta": "3,223 stars this month",
+    "contributors": ["https://avatars1.githubusercontent.com/u/16058869?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "3,226"
+}, {
+    "fullName": "macrozheng/mall",
+    "url": "/macrozheng/mall",
+    "description": "mall项目是一套电商系统，包括前台商城系统及后台管理系统，基于SpringBoot+MyBatis实现。 前台商城系统包含首页门户、商品推荐、商品搜索、商品展示、购物车、订单流程、会员中心、客户服务、帮助中心等模块。 后台管理系统包含商品管理、订单管理、会员管理、促销管理、运营管理、内容管理、统计报表、财务管理、权限管理、设置等模块。",
+    "language": "Java",
+    "meta": "2,665 stars this month",
+    "contributors": ["https://avatars1.githubusercontent.com/u/15903809?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "13,745"
+}, {
+    "fullName": "transloadit/uppy",
+    "url": "/transloadit/uppy",
+    "description": "The next open source file uploader for web browsers <g-emoji class=\"g-emoji\" alias=\"dog\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f436.png\">🐶</g-emoji>",
+    "language": "JavaScript",
+    "meta": "3,132 stars this month",
+    "contributors": ["https://avatars1.githubusercontent.com/u/1199054?s=40&amp;v=4"],
+    "contributorsUrl": "d-inline-block",
+    "starCount": "",
+    "forkCount": "19,421"
+}];
 const searchMock = {
     "total_count": 223787,
     "incomplete_results": false,

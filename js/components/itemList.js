@@ -3,6 +3,7 @@ import { Text, View, FlatList, TouchableOpacity, StyleSheet, RefreshControl, Ima
 import { connect } from 'react-redux';
 import FavIcon from './favIcon';
 import { loadItemList } from '../service/api';
+import NavigationUtil from '../navigator/NavigationUtil';
 class ItemList extends Component {
     constructor(props) {
         super(props);
@@ -11,6 +12,11 @@ class ItemList extends Component {
             isLoading: false,
             popularPageNo: 1
         };
+    }
+
+    showDetail = (name) => {
+        const { navigation } = this.props;
+        NavigationUtil.goPage(navigation, "WebViewPage", { name, path: `https://github.com/${name}` });
     }
 
     Item = (item, type) => {
@@ -29,7 +35,7 @@ class ItemList extends Component {
             isFavorite = true;
         }
         return (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.showDetail.bind(this, item.full_name || item.fullName)}>
                 <View style={styles.wrap}>
                     <Text style={styles.title}>
                         {item.full_name || item.fullName}

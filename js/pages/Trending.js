@@ -20,7 +20,7 @@ class Trending extends Component {
   }
 
   render() {
-    const { visiableCustomLanguage } = this.props;
+    const { visiableCustomLanguage, navigation } = this.props;
     const { language } = this.state;
     const tabs = visiableCustomLanguage.map(item => {
       return {
@@ -46,7 +46,7 @@ class Trending extends Component {
           }
         />
         <Tabs tabs={tabs}>
-          {tabs.map(({ title, query }, i) => <ItemList key={title + "i"} tabName={title} query={query} type="trending" timeSpan={language}/>)}
+          {tabs.map(({ title, query }, i) => <ItemList key={title + "i"} tabName={title} query={query} type="trending" timeSpan={language} navigation={navigation} />)}
         </Tabs>
       </View>
     )

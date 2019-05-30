@@ -25,7 +25,7 @@ export default class NavigationUtil {
      * @param navigation
      */
     static resetToHomPage(navigation) {
-        navigation.navigate("SearchPopular");
+        navigation.navigate("Main");
     }
 
 }

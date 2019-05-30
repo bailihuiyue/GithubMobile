@@ -21,7 +21,7 @@ class Popular extends Component {
   }
 
   render() {
-    const { visiableCustomKey, themeColor } = this.props;
+    const { visiableCustomKey, navigation } = this.props;
     const theme = {
       alignItems: 'center',
       justifyContent: 'center',
@@ -54,7 +54,7 @@ class Popular extends Component {
           leftButton={<Ionicons />}
         />
         <Tabs tabs={tabs}>
-          {tabs.map(({ title, query }, i) => <ItemList key={title + "i"} tabName={title} query={query} type="popular" />)}
+          {tabs.map(({ title, query }, i) => <ItemList key={title + "i"} tabName={title} query={query} type="popular" navigation={navigation} />)}
         </Tabs>
       </View>
     )

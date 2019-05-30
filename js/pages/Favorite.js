@@ -8,15 +8,15 @@ import Header from '../components/Header';
 class Favorite extends Component {
 
   render() {
-    const { favoritePopular, favoriteTrending } = this.props;
+    const { favoritePopular, favoriteTrending, navigation } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <Header
           title="收藏"
         />
         <Tabs tabs={[{ title: "热门" }, { title: "趋势" }]}>
-          <ItemList tabName="热门" type="favorite" data={favoritePopular} />
-          <ItemList tabName="趋势" type="favorite" data={favoriteTrending} />
+          <ItemList tabName="热门" type="favorite" data={favoritePopular} navigation={navigation} />
+          <ItemList tabName="趋势" type="favorite" data={favoriteTrending} navigation={navigation} />
         </Tabs>
       </View>
     )
