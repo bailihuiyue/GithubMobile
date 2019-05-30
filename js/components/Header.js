@@ -17,7 +17,7 @@ class Header extends Component {
                         null :
                         <View style={styles.navBarTitleContainer}>
                             {button}
-                            <Text ellipsizeMode="head" numberOfLines={1} style={styles.title}>{title}</Text>
+                            {title ? <Text ellipsizeMode="head" numberOfLines={1} style={styles.title}>{title}</Text> : null}
                         </View>
                 }
                 {rightButton}

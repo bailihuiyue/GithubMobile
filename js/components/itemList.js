@@ -55,7 +55,7 @@ class ItemList extends Component {
         )
     }
 
-    queryData = (data) => {
+    queryData = (data, searchKey) => {
         const { query, useOnlineData, type, timeSpan } = this.props;
         if (type === "popular") {
             this.setState({ isLoading: true });
@@ -71,12 +71,18 @@ class ItemList extends Component {
             });
         } else if (type === "favorite") {
             this.setState({ data, isLoading: false });
+        } else if (type === "search" && searchKey) {
+            this.setState({ isLoading: true });
+            const q = `q=${searchKey}&sort=stars&page=1&per_page=20`;
+            loadItemList(q, "search", useOnlineData).then(res => {
+                this.setState({ data: res.items, isLoading: false });
+            });
         }
     }
 
     handleLoadMore = (info) => {
         const { query, useOnlineData, type } = this.props;
-        if (type === "popular") {
+        if (type === "popular" || type === "search") {
             let { popularPageNo, data } = this.state;
             this.setState({ isLoading: true });
             const q = `q=${query}&sort=stars&page=${popularPageNo++}&per_page=20`;
@@ -99,12 +105,12 @@ class ItemList extends Component {
     }
 
     componentWillReceiveProps(nexProps) {
-        const { useOnlineData, timeSpan, data } = nexProps;
+        const { useOnlineData, timeSpan, data, query } = nexProps;
         if (useOnlineData !== this.props.useOnlineData ||
             timeSpan !== this.props.useOnlineData ||
             data !== this.props.data) {
             //TODO:bug:不知道为什么,必须在queryData里传值数据才正常,在queryData方法中解构data,数据总是慢一拍,显示上一次的值
-            this.queryData(data);
+            this.queryData(data, query);
         }
     }
 

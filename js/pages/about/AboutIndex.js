@@ -67,6 +67,7 @@ class AboutIndex extends Component {
 
   }
 
+  //TODO:,待优化:应该把LeftBackButton连后退事件也一起封装进去,否则需要到处写click事件
   handleClick() {
     const { navigation } = this.props;
     NavigationUtil.goBack(navigation)
