@@ -3,13 +3,22 @@ import Trending from 'GitHubTrending';
 import mock from './mock';
 const popularUrl = 'https://api.github.com/search/repositories?';
 const trndingUrl = 'https://github.com/trending/';
+const myRepo = 'https://api.github.com/users/bailihuiyue/repos';
 export const loadItemList = (params, name, useOnlineData) => {
-    return getData({ url: (name === "popular" || name === "search" ? popularUrl : trndingUrl) + params, method: "GET", name, useOnlineData });
+    let url = "";
+    if (name === "popular" || name === "search") {
+        url = popularUrl + params;
+    } else if (name === "my") {
+        url = myRepo + params;
+    } else {
+        url = trndingUrl;
+    }
+    return getData({ url, method: "GET", name, useOnlineData });
 }
 
 const getData = ({ url, method, useOnlineData = true, name }) => {
     //获取接口数据
-    if (false) {//useOnlineData
+    if (useOnlineData) {
         if (name === "trending") {
             return new Trending().fetchTrending(url)
                 .then(response => response)

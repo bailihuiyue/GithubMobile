@@ -36,6 +36,14 @@ class My extends Component {
         };
         break;
       case "Sort_Key":
+        //TODO:排序使用了react-native-sortable-listview插件,等有空实现
+        Alert.alert(
+          '即将上线',
+          '敬请期待!',
+          [
+            { text: 'OK' },
+          ]
+        )
         break;
       case "Demo_Mode":
         break;
@@ -46,6 +54,13 @@ class My extends Component {
         };
         break;
       case "Sort_Language":
+        Alert.alert(
+          '即将上线',
+          '敬请期待!',
+          [
+            { text: 'OK' },
+          ]
+        )
         break;
       case "Custom_Theme":
         this.setState({ showTheme: true });
@@ -60,6 +75,7 @@ class My extends Component {
         )
         break;
       case "About_Author":
+        RouteName = 'AboutAuthor';
         break;
     }
     if (RouteName) {
@@ -129,6 +145,7 @@ class My extends Component {
               <Switch onChange={this.onSwitchChange.bind(this)} checked={!useOnlineData} />
             }
           />
+          <MenuItem menu={MyPageTxt.About_Author} onClick={this.handleClickMenu.bind(this, "About_Author")} />
         </ScrollView>
         {/* 颜色选择器 */}
         <CustomTheme showTheme={showTheme} onClose={this.onCloseTheme.bind(this)} />

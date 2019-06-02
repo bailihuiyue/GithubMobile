@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, Linking, Alert } from 'react-native'
 import MenuItem from '../../components/MenuItem';
 import { MyPageTxt } from "../../utils/MyPageTxt";
 import AboutIndex from "./AboutIndex";
@@ -15,6 +15,23 @@ export default class AboutProject extends Component {
         RouteName = 'AboutAuthor';
         break;
       case "Feedback":
+        const url = 'mailto://964981348@qq.com';
+        Linking.canOpenURL(url)
+          .then(support => {
+            if (!support) {
+              Alert.alert(
+                '提示',
+                '系统暂不支持发送邮件!',
+                [
+                  { text: 'OK' },
+                ]
+              )
+            } else {
+              Linking.openURL(url);
+            }
+          }).catch(e => {
+            console.error('An error occurred', e);
+          });
         break;
     }
     if (RouteName) {
@@ -29,7 +46,7 @@ export default class AboutProject extends Component {
     params.name = "GitHub Mobile RN";
     params.description = "一个可以在手机上查看热门仓库以及趋势仓库的github APP";
     return (
-      <AboutIndex params={params}  navigation={navigation}>
+      <AboutIndex params={params} navigation={navigation}>
         <MenuItem menu={MyPageTxt.About_Author} onClick={this.handleClickMenu.bind(this, "About_Author")} />
         <View style={GlobalStyles.line} />
         <MenuItem menu={MyPageTxt.Feedback} onClick={this.handleClickMenu.bind(this, "Feedback")} />

@@ -28,7 +28,6 @@ class WebViewPage extends Component {
                 />
                 <WebView
                     source={{ uri: path }}
-                    style={{ marginTop: 20 }}
                 />
             </SafeAreaViewPlus>
         )

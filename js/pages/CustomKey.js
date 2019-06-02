@@ -8,6 +8,8 @@ import Header from '../components/Header';
 import { MyPageTxt } from '../utils/MyPageTxt';
 import mock from '../service/mock';
 import actionTypes from '../redux/actionTypes';
+import { LeftBackButton } from '../components/Buttons';
+import NavigationUtil from '../navigator/NavigationUtil';
 
 class CustomKey extends Component {
     constructor(props) {
@@ -59,6 +61,11 @@ class CustomKey extends Component {
         />
     }
 
+    handleClick() {
+        const { navigation } = this.props;
+        NavigationUtil.goBack(navigation)
+    }
+
     renderView() {
         const { navigation } = this.props;
         const { trendingData, popularData } = this.state;
@@ -96,11 +103,14 @@ class CustomKey extends Component {
             style={styles.container}
             topColor={themeColor}
         >
-            <Header title={
+            <Header 
+            title={
                 type === "CustomKey" ?
                     MyPageTxt.Custom_Key.name
                     : MyPageTxt.Custom_Language.name
-            } />
+            } 
+            leftButton={<LeftBackButton onClick={this.handleClick.bind(this)} />}
+            />
             <ScrollView>
                 {this.renderView()}
             </ScrollView>

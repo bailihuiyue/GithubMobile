@@ -52,9 +52,9 @@ class ItemList extends Component {
                         </View>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                             <Text>Start: </Text>
-                            <Text>{item.stargazers_count || item.meta.split(" ")[0]}</Text>
+                            <Text>{item.stargazers_count + "" || item.meta && item.meta.split(" ")[0]}</Text>
                         </View>
-                        <FavIcon item={item} type={favoriteType || type} isFavorite={isFavorite} />
+                        {type === "my" ? null : <FavIcon item={item} type={favoriteType || type} isFavorite={isFavorite} />}
                     </View>
                 </View>
             </TouchableOpacity>
@@ -82,6 +82,11 @@ class ItemList extends Component {
             const q = `q=${searchKey}&sort=stars&page=1&per_page=20`;
             loadItemList(q, "search", useOnlineData).then(res => {
                 this.setState({ data: res.items, isLoading: false });
+            });
+        } else if (type === "my") {
+            this.setState({ isLoading: true });
+            loadItemList("", "my", useOnlineData).then(res => {
+                this.setState({ data: res, isLoading: false });
             });
         }
     }
