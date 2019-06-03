@@ -8,11 +8,13 @@
 
 #### UI界面:
 
-![图1](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/1.png)
-![图2](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/1.png)
-![图3](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/1.png)
+![图1](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/4.png)
+![图2](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/3.png)
+![图3](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/2.png)
 ![图4](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/1.png)
-扫描二维码可以下载APP进行体验
+
+##### 扫描二维码可以下载APP进行体验
+
 ![图5](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/qrcode.png)
 
 ##### Popular  API
@@ -98,3 +100,9 @@ Main
 3.小米8趋势时间下拉显示不正常,红米3没事
 
 4.tab选择过多时会变形
+
+##### 备注:
+
+已上传node_modules包,方式依赖变动导致项目无法运行,
+
+地址:https://github.com/bailihuiyue/node-packages/blob/master/GithubMobileRN.7z
