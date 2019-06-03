@@ -6,6 +6,15 @@
 
 适合初学RN的同学,由于时间有限,app还有许多功能有待完善,也有很多bug,
 
+#### UI界面:
+
+![图1](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/1.png)
+![图2](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/1.png)
+![图3](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/1.png)
+![图4](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/1.png)
+扫描二维码可以下载APP进行体验
+![图5](https://github.com/bailihuiyue/GithubMobileRN/raw/master/doc/qrcode.png)
+
 ##### Popular  API
 
 - URL:https://api.github.com/search/repositories?
